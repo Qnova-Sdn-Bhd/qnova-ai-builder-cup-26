@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_02",
+  "project_id": "prj_bay_portal",
+  "expected_outcome": "findings",
+  "evidence_sufficiency": "sufficient",
+  "expected_findings": [
+    {
+      "id": "fnd_bay_acceptance",
+      "kind": "acceptance_gap",
+      "status": "open",
+      "summary": "A completed login task has only password evidence and does not demonstrate the accepted SSO criterion.",
+      "commitment_descriptions": [
+        "SSO acceptance requires customer-tenant UAT evidence."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_bay_scope_001",
+          "start_char": 302,
+          "end_char": 423,
+          "quote": "Acceptance requires a recorded UAT run using a customer test identity; a password-only test does not meet this criterion."
+        },
+        {
+          "source_version_id": "sv_bay_check_001",
+          "start_char": 203,
+          "end_char": 252,
+          "quote": "Login feature marked Complete on 22 October 2026."
+        },
+        {
+          "source_version_id": "sv_bay_check_001",
+          "start_char": 253,
+          "end_char": 308,
+          "quote": "Attached evidence is a successful local password login."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_bay_scope_001",
+          "path": "fixtures/inputs/sources/prj_bay_portal/sv_bay_scope_001.md",
+          "line_start": 10,
+          "line_end": 10
+        },
+        {
+          "source_version_id": "sv_bay_check_001",
+          "path": "fixtures/inputs/sources/prj_bay_portal/sv_bay_check_001.md",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "source_version_id": "sv_bay_check_001",
+          "path": "fixtures/inputs/sources/prj_bay_portal/sv_bay_check_001.md",
+          "line_start": 10,
+          "line_end": 10
+        }
+      ],
+      "must_not_claim": [
+        "Do not infer that a working password login proves SSO works."
+      ]
+    }
+  ],
+  "expected_active_baseline_source_version_ids": [
+    "sv_bay_scope_001"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [],
+  "must_not_claim": [],
+  "expected_events": []
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_10",
+  "project_id": "prj_juniper_portal",
+  "expected_outcome": "findings",
+  "evidence_sufficiency": "insufficient",
+  "expected_findings": [
+    {
+      "id": "fnd_juniper_acceptance",
+      "kind": "acceptance_gap",
+      "status": "open",
+      "summary": "Juniper acceptance evidence is missing; evidence from another project cannot close this gap.",
+      "commitment_descriptions": [
+        "Juniper-specific SSO acceptance is required."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_juniper_scope_001",
+          "start_char": 258,
+          "end_char": 345,
+          "quote": "Acceptance requires a Juniper customer-tenant UAT result and Juniper reviewer approval."
+        },
+        {
+          "source_version_id": "sv_juniper_check_001",
+          "start_char": 269,
+          "end_char": 339,
+          "quote": "No Juniper-tenant UAT result or acceptance approval has been provided."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_juniper_scope_001",
+          "path": "fixtures/inputs/sources/prj_juniper_portal/sv_juniper_scope_001.md",
+          "line_start": 10,
+          "line_end": 10
+        },
+        {
+          "source_version_id": "sv_juniper_check_001",
+          "path": "fixtures/inputs/sources/prj_juniper_portal/sv_juniper_check_001.md",
+          "line_start": 10,
+          "line_end": 10
+        }
+      ],
+      "must_not_claim": []
+    }
+  ],
+  "expected_active_baseline_source_version_ids": [
+    "sv_juniper_scope_001"
+  ],
+  "forbidden_source_version_ids": [
+    "sv_kestrel_uat_001"
+  ],
+  "review_questions": [],
+  "must_not_claim": [
+    "Do not reveal, retrieve or cite Kestrel document content to the Juniper actor."
+  ],
+  "expected_events": [
+    {
+      "event_id": "evt_juniper_cross_project_read",
+      "expected_result": "not_found",
+      "http_status": 404,
+      "expected_board_revision": 1,
+      "expected_evidence_revision": 1,
+      "expected_task_count": 0,
+      "must_not_disclose_source_version_ids": [
+        "sv_kestrel_uat_001"
+      ]
+    },
+    {
+      "event_id": "evt_juniper_cross_project_review",
+      "expected_result": "not_found",
+      "http_status": 404,
+      "expected_board_revision": 1,
+      "expected_evidence_revision": 1,
+      "expected_task_count": 0,
+      "must_not_disclose_source_version_ids": [
+        "sv_kestrel_uat_001"
+      ]
+    }
+  ]
+}

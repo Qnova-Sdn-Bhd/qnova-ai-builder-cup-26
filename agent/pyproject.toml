@@ -1,0 +1,33 @@
+[project]
+name = "handoff-guardian-agent"
+version = "0.1.0"
+description = "Bounded read-only evidence workflow for Vertex AI Agent Engine"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "google-adk==2.12.0",
+  "google-genai==2.31.0",
+  "google-cloud-aiplatform[agent_engines,adk]==2.5.0",
+  "pydantic==2.14.1",
+]
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "pytest-asyncio>=1.3,<2", "ruff==0.17.1"]
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/handoff_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = [".tools", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

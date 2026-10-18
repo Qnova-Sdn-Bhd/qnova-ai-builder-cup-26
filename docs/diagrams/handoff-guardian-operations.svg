@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1210" viewBox="0 0 1900 1210">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<rect width="1900" height="1210" fill="#FFFFFF"/>
+<text x="48" y="62.0" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#182B43" text-anchor="start">Delivery, operations and trust controls</text>
+<text x="48" y="100.0" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#526579" text-anchor="start">Google Cloud deployment pipeline and supporting controls • qnova-ai-builder • us-central1 unless stated</text>
+<rect x="48" y="129" width="1804" height="2" rx="0" fill="#DBE4EE" stroke="none" stroke-width="1.5"/>
+<rect x="48" y="165" width="1800" height="375" rx="12" fill="#F8FAFD" stroke="#C8D5E5" stroke-width="1.5"/>
+<text x="70" y="200.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#182B43" text-anchor="start">Build and deploy</text>
+<text x="70" y="226.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Cloud Build uses the dedicated hg-build identity. Initial resources and IAM are provisioned by reviewed Terraform.</text>
+<rect x="70" y="300" width="275" height="165" rx="12" fill="#F1F5F9" stroke="#526579" stroke-width="1.5"/>
+<text x="88" y="325.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#526579" text-anchor="start">OPERATOR / REPOSITORY</text>
+<text x="88" y="359.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Application source</text>
+<text x="88" y="392.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">frontend/ · backend/ · agent/</text>
+<text x="88" y="413.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Contracts, locks and tests</text>
+<text x="88" y="435.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Explicit build submission</text>
+<rect x="430" y="300" width="275" height="165" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="448" y="325.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">CLOUD BUILD</text>
+<text x="448" y="359.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Verify and package</text>
+<text x="448" y="392.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Lint, types, unit / browser tests</text>
+<text x="448" y="413.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Firestore emulator tests</text>
+<text x="448" y="435.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Build images + ADK package</text>
+<rect x="790" y="300" width="275" height="165" rx="12" fill="#E6F4EA" stroke="#188038" stroke-width="1.5"/>
+<text x="808" y="325.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#188038" text-anchor="start">ARTIFACT REGISTRY</text>
+<text x="808" y="359.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Container images</text>
+<text x="808" y="392.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Separate web and API images</text>
+<text x="808" y="413.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Digest-pinned deployments</text>
+<text x="808" y="435.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Worker shares API image</text>
+<rect x="1150" y="300" width="300" height="165" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="1168" y="325.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">CLOUD RUN</text>
+<text x="1168" y="359.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Deploy existing services</text>
+<text x="1168" y="392.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">hg-web · hg-api · hg-worker</text>
+<text x="1168" y="413.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Separate runtime identities</text>
+<text x="1168" y="435.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Private worker invocation</text>
+<rect x="1535" y="300" width="290" height="165" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="1553" y="325.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7650B3" text-anchor="start">VERTEX AI AGENT ENGINE</text>
+<text x="1553" y="359.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Update ADK runtime</text>
+<text x="1553" y="392.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Reuse existing engine resource</text>
+<text x="1553" y="413.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Attached hg-agent identity</text>
+<text x="1553" y="435.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">All Gemini calls run here</text>
+<polyline points="345,382.5 430,382.5" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="705,382.5 790,382.5" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="1065,382.5 1150,382.5" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="567.5,300 567.5,265 1680,265 1680.0,300" fill="none" stroke="#7650B3" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="897" y="244" width="346" height="25" rx="3" fill="#FFFFFF"/>
+<text x="900" y="260.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#7650B3" text-anchor="start">Deploy ADK package via Agent Engine SDK</text>
+<rect x="48" y="575" width="1800" height="505" rx="12" fill="#F8FAFD" stroke="#C8D5E5" stroke-width="1.5"/>
+<text x="70" y="610.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#182B43" text-anchor="start">Infrastructure, observability and operational safeguards</text>
+<text x="70" y="636.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">These support the runtime; they do not introduce another hosted provider.</text>
+<rect x="70" y="680" width="275" height="170" rx="12" fill="#F1F5F9" stroke="#526579" stroke-width="1.5"/>
+<text x="88" y="705.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#526579" text-anchor="start">TERRAFORM · OPERATOR ADC</text>
+<text x="88" y="739.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Provision infrastructure</text>
+<text x="88" y="772.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">APIs, IAM, Run configuration</text>
+<text x="88" y="793.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Database, buckets, queue, OCR</text>
+<text x="88" y="815.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Scheduler and alert policies</text>
+<rect x="430" y="680" width="275" height="170" rx="12" fill="#E6F4EA" stroke="#188038" stroke-width="1.5"/>
+<text x="448" y="705.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#188038" text-anchor="start">CLOUD STORAGE</text>
+<text x="448" y="739.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Terraform state</text>
+<text x="448" y="772.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Private GCS remote backend</text>
+<text x="448" y="793.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">qnova-ai-builder-hg-tfstate</text>
+<text x="448" y="815.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Not product evidence storage</text>
+<rect x="790" y="680" width="275" height="170" rx="12" fill="#E6F4EA" stroke="#188038" stroke-width="1.5"/>
+<text x="808" y="705.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#188038" text-anchor="start">CLOUD STORAGE</text>
+<text x="808" y="739.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Build and agent staging</text>
+<text x="808" y="772.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Private source staging bucket</text>
+<text x="808" y="793.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Private ADK staging bucket</text>
+<text x="808" y="815.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Separate from evidence bucket</text>
+<rect x="1150" y="680" width="300" height="170" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="1168" y="705.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">CLOUD LOGGING</text>
+<text x="1168" y="739.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Safe operational events</text>
+<text x="1168" y="772.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">IDs, revisions, status, latency</text>
+<text x="1168" y="793.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Safe validation codes + usage</text>
+<text x="1168" y="815.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">No full source/model bodies</text>
+<rect x="1535" y="680" width="290" height="170" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="1553" y="705.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#B06000" text-anchor="start">CLOUD MONITORING</text>
+<text x="1553" y="739.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Metrics and alerts</text>
+<text x="1553" y="772.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Job-failure alert policy</text>
+<text x="1553" y="793.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Queue-backlog alert policy</text>
+<text x="1553" y="815.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Review logs to diagnose</text>
+<polyline points="345,765.0 430,765.0" fill="none" stroke="#188038" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="567.5,465 567.5,505 760,505 760,640 927.5,640 927.5,680" fill="none" stroke="#188038" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<rect x="782" y="602" width="226" height="25" rx="3" fill="#FFFFFF"/>
+<text x="785" y="618.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#188038" text-anchor="start">Source / ADK artifacts</text>
+<polyline points="1300.0,465 1300.0,680" fill="none" stroke="#526579" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<rect x="1162" y="602" width="246" height="25" rx="3" fill="#FFFFFF"/>
+<text x="1165" y="618.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Runtime + build events</text>
+<polyline points="1680.0,465 1680,565 1480,565 1480,765 1450,765.0" fill="none" stroke="#526579" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<polyline points="1450,765.0 1535,765.0" fill="none" stroke="#B06000" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="70" y="905" width="495" height="140" rx="12" fill="#F1F5F9" stroke="#526579" stroke-width="1.5" stroke-dasharray="7 5"/>
+<text x="88" y="930.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#526579" text-anchor="start">SECRET MANAGER · AVAILABLE</text>
+<text x="88" y="964.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">No runtime secrets configured</text>
+<text x="88" y="997.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Service enabled; no populated secret is required today.</text>
+<text x="88" y="1018.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Use attached identities / approved ADC; no key files.</text>
+<rect x="600" y="905" width="565" height="140" rx="12" fill="#F1F5F9" stroke="#526579" stroke-width="1.5"/>
+<text x="618" y="930.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#526579" text-anchor="start">IAM · LEAST PRIVILEGE</text>
+<text x="618" y="964.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Separate attached service accounts</text>
+<text x="618" y="997.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Web, API, worker, agent, Tasks, Scheduler and Build.</text>
+<text x="618" y="1018.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Only Tasks / Scheduler may invoke the private worker.</text>
+<rect x="1200" y="905" width="625" height="140" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="1218" y="930.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#B06000" text-anchor="start">RUNTIME BOUNDS AND BILLING ALERTS</text>
+<text x="1218" y="964.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Bounded capacity; budget is an alert</text>
+<text x="1218" y="997.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Cloud Run / Agent Engine: minimum 0, maximum 2 instances.</text>
+<text x="1218" y="1018.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">RM200 monthly budget with 50% / 90% / 100% notifications.</text>
+<text x="1218" y="1040.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Billing alerts do not impose an application spending cap.</text>
+<text x="70" y="1114.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Compute, Firestore and private buckets: us-central1 • Document AI processor: us • Gemini inference: us • Identity Platform: managed authentication</text>
+<rect x="48" y="1145" width="1804" height="1" rx="0" fill="#DBE4EE" stroke="none" stroke-width="1.5"/>
+<text x="48" y="1176.0" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526579" text-anchor="start">Solid arrows: artifact / data flow • Dashed arrows: supporting flows or available capability • Application config and infrastructure definitions remain in the repository</text>
+</svg>

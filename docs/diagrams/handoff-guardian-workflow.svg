@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="1400" viewBox="0 0 1880 1400">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<rect width="1880" height="1400" fill="#FFFFFF"/>
+<text x="48" y="62.0" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#182B43" text-anchor="start">Evidence → assessment → reviewed action</text>
+<text x="48" y="100.0" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#526579" text-anchor="start">How the deployed services preserve source authority, exact evidence and human approval</text>
+<rect x="48" y="129" width="1784" height="2" rx="0" fill="#DBE4EE" stroke="none" stroke-width="1.5"/>
+<rect x="48" y="165" width="360" height="1095" rx="12" fill="#FAFBFD" stroke="#C8D5E5" stroke-width="1.5"/>
+<text x="70" y="200.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#182B43" text-anchor="start">Reviewer / browser</text>
+<text x="70" y="226.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Authorized project member</text>
+<rect x="462" y="165" width="400" height="1095" rx="12" fill="#FAFBFD" stroke="#C8D5E5" stroke-width="1.5"/>
+<text x="484" y="200.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#182B43" text-anchor="start">Public API + Firestore</text>
+<text x="484" y="226.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Identity, membership and durable state</text>
+<rect x="916" y="165" width="400" height="1095" rx="12" fill="#FAFBFD" stroke="#C8D5E5" stroke-width="1.5"/>
+<text x="938" y="200.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#182B43" text-anchor="start">Private worker</text>
+<text x="938" y="226.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Queued work, leases and publication</text>
+<rect x="1370" y="165" width="460" height="1095" rx="12" fill="#FAFBFD" stroke="#C8D5E5" stroke-width="1.5"/>
+<text x="1392" y="200.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#182B43" text-anchor="start">Managed document / AI services</text>
+<text x="1392" y="226.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Read-only processing and inference</text>
+<text x="66" y="268.0" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1A73E8" text-anchor="start">01  UPLOAD AND EXTRACT</text>
+<rect x="68" y="295" width="320" height="180" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="86" y="320.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">REVIEWER</text>
+<text x="86" y="354.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Upload PDF / TXT / MD</text>
+<text x="86" y="387.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Original evidence + metadata</text>
+<text x="86" y="408.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Upload never grants authority.</text>
+<text x="86" y="430.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Human reviews authority later.</text>
+<rect x="482" y="295" width="360" height="180" rx="12" fill="#E6F4EA" stroke="#188038" stroke-width="1.5"/>
+<text x="500" y="320.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#188038" text-anchor="start">API + FIRESTORE + GCS</text>
+<text x="500" y="354.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Authorize and persist</text>
+<text x="500" y="387.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Store generation-pinned original.</text>
+<text x="500" y="408.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Transaction: source + job + outbox.</text>
+<text x="500" y="430.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Return queued; dispatch via Cloud Tasks.</text>
+<rect x="936" y="295" width="360" height="180" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="954" y="320.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">WORKER · LEASED JOB</text>
+<text x="954" y="354.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Produce canonical evidence</text>
+<text x="954" y="387.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">PDF → Document AI; TXT/MD → UTF-8.</text>
+<text x="954" y="408.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Store canonical text, hashes and anchors.</text>
+<text x="954" y="430.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Fenced transaction publishes ready.</text>
+<rect x="1390" y="295" width="420" height="180" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="1408" y="320.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7650B3" text-anchor="start">DOCUMENT AI</text>
+<text x="1408" y="354.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Extract PDF text</text>
+<text x="1408" y="387.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Real OCR using pinned processor version.</text>
+<text x="1408" y="408.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Page mapping uses Unicode code points.</text>
+<text x="1408" y="430.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">No local PDF extraction fallback.</text>
+<polyline points="388,385.0 482,385.0" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="842,385.0 936,385.0" fill="none" stroke="#B06000" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="847" y="347" width="84" height="46" rx="3" fill="#FFFFFF"/>
+<text x="850" y="363.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#B06000" text-anchor="start">Queue /</text>
+<text x="850" y="381.9" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#B06000" text-anchor="start">OIDC</text>
+<polyline points="1296,385.0 1390,385.0" fill="none" stroke="#7650B3" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<text x="66" y="546.0" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#7650B3" text-anchor="start">02  ASSESS READY EVIDENCE</text>
+<rect x="68" y="575" width="320" height="190" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="86" y="600.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">REVIEWER</text>
+<text x="86" y="634.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Request assessment</text>
+<text x="86" y="667.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Click Run analysis.</text>
+<text x="86" y="688.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Uses the project&#x27;s business clock.</text>
+<text x="86" y="710.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Pending / failed evidence blocks analysis.</text>
+<rect x="482" y="575" width="360" height="190" rx="12" fill="#E6F4EA" stroke="#188038" stroke-width="1.5"/>
+<text x="500" y="600.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#188038" text-anchor="start">API + FIRESTORE + GCS</text>
+<text x="500" y="634.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Capture authorized snapshot</text>
+<text x="500" y="667.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Recheck reviewer and evidence revision.</text>
+<text x="500" y="688.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Capture ready sources and reviewed facts.</text>
+<text x="500" y="710.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Persist immutable snapshot + job + outbox.</text>
+<rect x="936" y="575" width="360" height="190" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="954" y="600.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">WORKER · FRESH MANAGED SESSION</text>
+<text x="954" y="634.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Invoke and validate</text>
+<text x="954" y="667.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Recheck access before reading evidence.</text>
+<text x="954" y="688.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Invoke Agent Engine with bounded packet.</text>
+<text x="954" y="710.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Validate final result again before publish.</text>
+<rect x="1390" y="575" width="420" height="190" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="1408" y="600.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7650B3" text-anchor="start">ADK AGENT ENGINE → GEMINI</text>
+<text x="1408" y="634.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Analyze read-only evidence</text>
+<text x="1408" y="667.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Compare scope, acceptance and dependencies.</text>
+<text x="1408" y="688.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Model quotes exact text; code resolves offsets.</text>
+<text x="1408" y="710.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Reject invalid refs; bounded repair only.</text>
+<text x="1408" y="731.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Return candidates, findings and warnings.</text>
+<polyline points="388,670.0 482,670.0" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="842,670.0 936,670.0" fill="none" stroke="#B06000" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="1296,670.0 1390,670.0" fill="none" stroke="#7650B3" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="1600.0,765 1600,805 1116,805 1116.0,765" fill="none" stroke="#7650B3" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<rect x="1147" y="787" width="381" height="25" rx="3" fill="#FFFFFF"/>
+<text x="1150" y="803.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#7650B3" text-anchor="start">Only validated final output; never partial model text</text>
+<rect x="48" y="840" width="1782" height="420" rx="12" fill="#F8FAFD" stroke="#C8D5E5" stroke-width="1.5"/>
+<text x="70" y="875.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#182B43" text-anchor="start">03  REVIEW AND CREATE TASK | API-owned execution</text>
+<rect x="68" y="900" width="320" height="205" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="86" y="925.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">REVIEWER · SEPARATE DECISIONS</text>
+<text x="86" y="959.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Review evidence and action</text>
+<text x="86" y="992.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Inspect citations and source authority.</text>
+<text x="86" y="1013.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Accept commitments explicitly.</text>
+<text x="86" y="1035.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Review exact blocker-task proposal.</text>
+<text x="86" y="1056.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Approve, then separately execute.</text>
+<rect x="482" y="900" width="360" height="205" rx="12" fill="#E6F4EA" stroke="#188038" stroke-width="1.5"/>
+<text x="500" y="925.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#188038" text-anchor="start">API · PROPOSAL + APPROVAL</text>
+<text x="500" y="959.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Bind and recheck approval</text>
+<text x="500" y="992.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Bind payload hash, evidence/board revision,</text>
+<text x="500" y="1013.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">analysis and finding version.</text>
+<text x="500" y="1035.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Recheck current permission + freshness.</text>
+<text x="500" y="1056.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Changed bindings fail without a task write.</text>
+<rect x="936" y="900" width="360" height="205" rx="12" fill="#E6F4EA" stroke="#188038" stroke-width="1.5"/>
+<text x="954" y="925.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#188038" text-anchor="start">FIRESTORE TRANSACTION · VIA API</text>
+<text x="954" y="959.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Persist one blocker task</text>
+<text x="954" y="992.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Atomic task + execution/idempotency result</text>
+<text x="954" y="1013.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">+ board revision + audit event.</text>
+<text x="954" y="1035.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Replay returns the recorded result.</text>
+<text x="954" y="1056.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">No model or queue calls in transaction.</text>
+<rect x="1390" y="900" width="420" height="205" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="1408" y="925.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">AUTHORIZED PROJECT BOARD</text>
+<text x="1408" y="959.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Show task and audit trail</text>
+<text x="1408" y="992.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Refresh retains the persisted task.</text>
+<text x="1408" y="1013.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Creating a task does not resolve the finding</text>
+<text x="1408" y="1035.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">or close a commitment.</text>
+<text x="1408" y="1056.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Closure requires reviewed acceptance evidence.</text>
+<polyline points="388,1002.5 482,1002.5" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="842,1002.5 936,1002.5" fill="none" stroke="#188038" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="1296,1002.5 1390,1002.5" fill="none" stroke="#188038" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<text x="70" y="1165.0" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526579" text-anchor="start">Cross-cutting controls: ID-token verification + server-side membership • Immutable GCS generations + hashes • Durable outbox, leases and fenced publication</text>
+<text x="70" y="1185.25" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526579" text-anchor="start">Source authority is a reviewer decision • New uploads do not supersede accepted sources automatically • Changed evidence makes old actions stale</text>
+<text x="70" y="1205.5" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526579" text-anchor="start">Synthetic business time is operator-controlled and labeled; real UTC governs authentication, leases and audit occurrence.</text>
+<rect x="48" y="1335" width="1784" height="1" rx="0" fill="#DBE4EE" stroke="none" stroke-width="1.5"/>
+<text x="48" y="1366.0" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526579" text-anchor="start">A logical workflow, not a claim that every acceptance case has passed • Solid arrows: primary request/data flow • Dashed arrow: validated analysis response</text>
+</svg>

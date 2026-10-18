@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "scenario_id": "scn_11",
+  "events": [
+    {
+      "id": "evt_larch_initial_analysis",
+      "operation": "analyze",
+      "analysis_run_id": "run_larch_initial",
+      "evaluation_as_of": "2026-10-22T12:00:00Z"
+    },
+    {
+      "id": "evt_larch_duplicate_import",
+      "operation": "import_existing_source",
+      "source_version_id": "sv_larch_dates_001"
+    },
+    {
+      "id": "evt_larch_propose",
+      "operation": "create_action_proposal",
+      "action_id": "ap_larch_credentials",
+      "request": {
+        "analysis_run_id": "run_larch_initial",
+        "payload": {
+          "finding_id": "fnd_larch_dependency",
+          "title": "Obtain customer tenant credentials before SSO launch",
+          "description": "Agree a feasible credential delivery date and retain supporting readiness evidence.",
+          "owner_id": "usr_larch_task_reviewer",
+          "due_date": "2026-10-24"
+        },
+        "expected_evidence_revision": 3,
+        "expected_board_revision": 7,
+        "expected_finding_version": 1,
+        "replaces_action_id": null
+      }
+    },
+    {
+      "id": "evt_larch_viewer",
+      "operation": "review_action",
+      "actor_id": "usr_larch_task_viewer",
+      "action_id": "ap_larch_credentials",
+      "request": {
+        "decision": "approve",
+        "note": "A viewer must not approve.",
+        "binding": {
+          "payload_hash": "85b6eccdd09da09726f6252bf7485f71a1f45af52de21981ed527e9f82d23218",
+          "evidence_revision": 3,
+          "base_board_revision": 7,
+          "finding_version": 1
+        }
+      }
+    },
+    {
+      "id": "evt_larch_approve",
+      "operation": "review_action",
+      "actor_id": "usr_larch_task_reviewer",
+      "action_id": "ap_larch_credentials",
+      "request": {
+        "decision": "approve",
+        "note": "Reviewed the exact blocker payload.",
+        "binding": {
+          "payload_hash": "85b6eccdd09da09726f6252bf7485f71a1f45af52de21981ed527e9f82d23218",
+          "evidence_revision": 3,
+          "base_board_revision": 7,
+          "finding_version": 1
+        }
+      }
+    },
+    {
+      "id": "evt_larch_execute",
+      "operation": "execute_action",
+      "actor_id": "usr_larch_task_reviewer",
+      "action_id": "ap_larch_credentials",
+      "idempotency_key": "idem_larch_credentials",
+      "request": {
+        "binding": {
+          "payload_hash": "85b6eccdd09da09726f6252bf7485f71a1f45af52de21981ed527e9f82d23218",
+          "evidence_revision": 3,
+          "base_board_revision": 7,
+          "finding_version": 1
+        }
+      }
+    },
+    {
+      "id": "evt_larch_duplicate_execute",
+      "operation": "execute_action",
+      "actor_id": "usr_larch_task_reviewer",
+      "action_id": "ap_larch_credentials",
+      "idempotency_key": "idem_larch_credentials",
+      "request": {
+        "binding": {
+          "payload_hash": "85b6eccdd09da09726f6252bf7485f71a1f45af52de21981ed527e9f82d23218",
+          "evidence_revision": 3,
+          "base_board_revision": 7,
+          "finding_version": 1
+        }
+      }
+    },
+    {
+      "id": "evt_larch_new_key_replay",
+      "operation": "execute_action",
+      "actor_id": "usr_larch_task_reviewer",
+      "action_id": "ap_larch_credentials",
+      "idempotency_key": "idem_larch_new_key",
+      "request": {
+        "binding": {
+          "payload_hash": "85b6eccdd09da09726f6252bf7485f71a1f45af52de21981ed527e9f82d23218",
+          "evidence_revision": 3,
+          "base_board_revision": 7,
+          "finding_version": 1
+        }
+      }
+    },
+    {
+      "id": "evt_larch_stale_board",
+      "operation": "create_action_proposal",
+      "actor_id": "usr_larch_task_reviewer",
+      "action_id": "ap_larch_stale",
+      "request": {
+        "analysis_run_id": "run_larch_initial",
+        "payload": {
+          "finding_id": "fnd_larch_dependency",
+          "title": "Obtain customer tenant credentials before SSO launch",
+          "description": "Agree a feasible credential delivery date and retain supporting readiness evidence.",
+          "owner_id": "usr_larch_task_reviewer",
+          "due_date": "2026-10-24"
+        },
+        "expected_evidence_revision": 3,
+        "expected_board_revision": 7,
+        "expected_finding_version": 1,
+        "replaces_action_id": null
+      }
+    },
+    {
+      "id": "evt_larch_stale_evidence",
+      "operation": "create_action_proposal",
+      "actor_id": "usr_larch_task_reviewer",
+      "action_id": "ap_larch_old_evidence",
+      "request": {
+        "analysis_run_id": "run_larch_initial",
+        "payload": {
+          "finding_id": "fnd_larch_dependency",
+          "title": "Obtain customer tenant credentials before SSO launch",
+          "description": "Agree a feasible credential delivery date and retain supporting readiness evidence.",
+          "owner_id": "usr_larch_task_reviewer",
+          "due_date": "2026-10-24"
+        },
+        "expected_evidence_revision": 2,
+        "expected_board_revision": 8,
+        "expected_finding_version": 1,
+        "replaces_action_id": null
+      }
+    },
+    {
+      "id": "evt_larch_mutated_source",
+      "operation": "attempt_source_id_reuse_with_changed_content",
+      "source_version_id": "sv_larch_dates_001",
+      "replacement_text": "SYNTHETIC FIXTURE — all organisations, people, dates and records below are fictional.\nDifferent content under an existing immutable ID must be rejected.\n"
+    }
+  ]
+}

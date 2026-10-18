@@ -1,0 +1,48 @@
+# Local secrets and generated application state
+.env
+.env.*
+!.env.example
+data/
+backend/data/
+*.db
+*.db-shm
+*.db-wal
+
+# Dependencies and caches
+node_modules/
+.tools/
+.next/
+.npm-cache/
+*.tsbuildinfo
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Generated verification output
+coverage/
+htmlcov/
+playwright-report/
+test-results/
+artifacts/
+*.log
+
+# Editor and operating-system output
+.DS_Store
+Thumbs.db
+.idea/
+
+# Keep approved package lockfiles, synthetic fixtures, and build evidence in Git.
+
+# Infrastructure state, plans and local credentials
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+credentials*.json
+service-account*.json
+# Keep .terraform.lock.hcl and application package lockfiles in version control.

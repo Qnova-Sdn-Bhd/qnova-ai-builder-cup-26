@@ -1,0 +1,1084 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "dataset_id": "handoff-guardian-synthetic-v1",
+  "notice": "SYNTHETIC FIXTURE — all organisations, people, dates and records below are fictional.",
+  "users": [
+    {
+      "id": "usr_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@harbour.test"
+    },
+    {
+      "id": "usr_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@harbour.test"
+    },
+    {
+      "id": "usr_bay_portal_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@bay-portal.test"
+    },
+    {
+      "id": "usr_bay_portal_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@bay-portal.test"
+    },
+    {
+      "id": "usr_cedar_access_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@cedar-access.test"
+    },
+    {
+      "id": "usr_cedar_access_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@cedar-access.test"
+    },
+    {
+      "id": "usr_delta_console_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@delta-console.test"
+    },
+    {
+      "id": "usr_delta_console_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@delta-console.test"
+    },
+    {
+      "id": "usr_elm_service_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@elm-service.test"
+    },
+    {
+      "id": "usr_elm_service_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@elm-service.test"
+    },
+    {
+      "id": "usr_fir_hub_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@fir-hub.test"
+    },
+    {
+      "id": "usr_fir_hub_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@fir-hub.test"
+    },
+    {
+      "id": "usr_grove_case_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@grove-case.test"
+    },
+    {
+      "id": "usr_grove_case_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@grove-case.test"
+    },
+    {
+      "id": "usr_heath_sync_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@heath-sync.test"
+    },
+    {
+      "id": "usr_heath_sync_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@heath-sync.test"
+    },
+    {
+      "id": "usr_iris_import_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@iris-import.test"
+    },
+    {
+      "id": "usr_iris_import_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@iris-import.test"
+    },
+    {
+      "id": "usr_juniper_portal_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@juniper-portal.test"
+    },
+    {
+      "id": "usr_juniper_portal_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@juniper-portal.test"
+    },
+    {
+      "id": "usr_kestrel_portal_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@kestrel-portal.test"
+    },
+    {
+      "id": "usr_kestrel_portal_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@kestrel-portal.test"
+    },
+    {
+      "id": "usr_larch_task_reviewer",
+      "display_name": "Synthetic Reviewer",
+      "email": "reviewer@larch-task.test"
+    },
+    {
+      "id": "usr_larch_task_viewer",
+      "display_name": "Synthetic Viewer",
+      "email": "viewer@larch-task.test"
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj_harbour_portal",
+      "name": "Harbour Services — Staff Portal",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_bay_portal",
+      "name": "Bay Workshops — Employee Portal",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_bay_portal_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_bay_portal_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_cedar_access",
+      "name": "Cedar Design — Staff Access",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_cedar_access_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_cedar_access_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_delta_console",
+      "name": "Delta Fabrics — Service Console",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_delta_console_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_delta_console_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_elm_service",
+      "name": "Elm Studios — Service Portal",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_elm_service_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_elm_service_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_fir_hub",
+      "name": "Fir Equipment — Team Hub",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_fir_hub_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_fir_hub_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_grove_case",
+      "name": "Grove Creative — Case Workspace",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_grove_case_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_grove_case_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_heath_sync",
+      "name": "Heath Works — Staff Workspace",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_heath_sync_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_heath_sync_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_iris_import",
+      "name": "Iris Engineering — Staff Portal",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_iris_import_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_iris_import_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_juniper_portal",
+      "name": "Juniper Consulting — Employee Portal",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_juniper_portal_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_juniper_portal_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_kestrel_portal",
+      "name": "Kestrel Partners — Employee Portal",
+      "timezone": "UTC",
+      "board_revision": 1,
+      "evidence_revision": 1,
+      "memberships": [
+        {
+          "user_id": "usr_kestrel_portal_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_kestrel_portal_viewer",
+          "role": "viewer"
+        }
+      ]
+    },
+    {
+      "id": "prj_larch_task",
+      "name": "Larch Media — Staff Access",
+      "timezone": "UTC",
+      "board_revision": 7,
+      "evidence_revision": 3,
+      "memberships": [
+        {
+          "user_id": "usr_larch_task_reviewer",
+          "role": "reviewer"
+        },
+        {
+          "user_id": "usr_larch_task_viewer",
+          "role": "viewer"
+        }
+      ]
+    }
+  ],
+  "source_versions": [
+    {
+      "id": "sv_hp_sow_001",
+      "document_id": "doc_hp_sow",
+      "project_id": "prj_harbour_portal",
+      "version_number": 1,
+      "title": "Signed scope baseline v1",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_reviewer",
+      "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_sow_001.md",
+      "content_sha256": "e80ddb09fecc09160a0bd0273a78268f9380c5fa9290107debede579b2793406",
+      "canonical_text_sha256": "e80ddb09fecc09160a0bd0273a78268f9380c5fa9290107debede579b2793406"
+    },
+    {
+      "id": "sv_hp_presales_001",
+      "document_id": "doc_hp_presales",
+      "project_id": "prj_harbour_portal",
+      "version_number": 1,
+      "title": "Presales launch email",
+      "source_kind": "email",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "proposal",
+      "authority_confirmed_by": "usr_reviewer",
+      "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_presales_001.md",
+      "content_sha256": "82a2706fb798c6aa31d4b9df3770494ac2c11d1c1034bc1586aa9572ade30c25",
+      "canonical_text_sha256": "82a2706fb798c6aa31d4b9df3770494ac2c11d1c1034bc1586aa9572ade30c25"
+    },
+    {
+      "id": "sv_hp_checklist_001",
+      "document_id": "doc_hp_checklist",
+      "project_id": "prj_harbour_portal",
+      "version_number": 1,
+      "title": "Launch-readiness checklist",
+      "source_kind": "acceptance_checklist",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_reviewer",
+      "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_checklist_001.md",
+      "content_sha256": "a31c0bb53717f45e1b953ab51ae2a93c638d7bf2337320ff2805bb83af60c97b",
+      "canonical_text_sha256": "a31c0bb53717f45e1b953ab51ae2a93c638d7bf2337320ff2805bb83af60c97b"
+    },
+    {
+      "id": "sv_hp_readiness_001",
+      "document_id": "doc_hp_readiness",
+      "project_id": "prj_harbour_portal",
+      "version_number": 1,
+      "title": "Launch dependency plan",
+      "source_kind": "project_export",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_reviewer",
+      "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_readiness_001.md",
+      "content_sha256": "acfc2c796ae30bfb0a83a4cdf0c00e82095251f99e93ac3234dfba739b821a5e",
+      "canonical_text_sha256": "acfc2c796ae30bfb0a83a4cdf0c00e82095251f99e93ac3234dfba739b821a5e"
+    },
+    {
+      "id": "sv_bay_scope_001",
+      "document_id": "doc_bay_scope",
+      "project_id": "prj_bay_portal",
+      "version_number": 1,
+      "title": "Accepted employee portal scope",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_bay_portal_reviewer",
+      "path": "fixtures/inputs/sources/prj_bay_portal/sv_bay_scope_001.md",
+      "content_sha256": "8ea1fb0501c74f2c89889f612a47bf489542b77499be6dceb36bf0eef592cf88",
+      "canonical_text_sha256": "8ea1fb0501c74f2c89889f612a47bf489542b77499be6dceb36bf0eef592cf88"
+    },
+    {
+      "id": "sv_bay_check_001",
+      "document_id": "doc_bay_check",
+      "project_id": "prj_bay_portal",
+      "version_number": 1,
+      "title": "Implementation checklist",
+      "source_kind": "acceptance_checklist",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_bay_portal_reviewer",
+      "path": "fixtures/inputs/sources/prj_bay_portal/sv_bay_check_001.md",
+      "content_sha256": "3a2396a8e1a3ecc04a6c9adf06ae0d2e9d9d628a4b0b0a2fbf3dfa3c0abf006c",
+      "canonical_text_sha256": "3a2396a8e1a3ecc04a6c9adf06ae0d2e9d9d628a4b0b0a2fbf3dfa3c0abf006c"
+    },
+    {
+      "id": "sv_cedar_plan_001",
+      "document_id": "doc_cedar_plan",
+      "project_id": "prj_cedar_access",
+      "version_number": 1,
+      "title": "Accepted rollout plan",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_cedar_access_reviewer",
+      "path": "fixtures/inputs/sources/prj_cedar_access/sv_cedar_plan_001.md",
+      "content_sha256": "9aaa82a7297fe5c1b1144677a60b79641ac2ab2e0a482814e943d34a2270395d",
+      "canonical_text_sha256": "9aaa82a7297fe5c1b1144677a60b79641ac2ab2e0a482814e943d34a2270395d"
+    },
+    {
+      "id": "sv_cedar_dates_001",
+      "document_id": "doc_cedar_dates",
+      "project_id": "prj_cedar_access",
+      "version_number": 1,
+      "title": "Customer dependency dates",
+      "source_kind": "email",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_cedar_access_reviewer",
+      "path": "fixtures/inputs/sources/prj_cedar_access/sv_cedar_dates_001.md",
+      "content_sha256": "0872a3c2776967f03845952a31b8dbcc20e97d036fa1faee1c808f92f4766396",
+      "canonical_text_sha256": "0872a3c2776967f03845952a31b8dbcc20e97d036fa1faee1c808f92f4766396"
+    },
+    {
+      "id": "sv_delta_scope_001",
+      "document_id": "doc_delta_scope",
+      "project_id": "prj_delta_console",
+      "version_number": 1,
+      "title": "Accepted console scope and terminology",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_delta_console_reviewer",
+      "path": "fixtures/inputs/sources/prj_delta_console/sv_delta_scope_001.md",
+      "content_sha256": "5dcf224fedd7758a6ab7dd25b6d18e5d9a9151c7ea1fa0b2fcc64ec1bdb49bcb",
+      "canonical_text_sha256": "5dcf224fedd7758a6ab7dd25b6d18e5d9a9151c7ea1fa0b2fcc64ec1bdb49bcb"
+    },
+    {
+      "id": "sv_delta_uat_001",
+      "document_id": "doc_delta_uat",
+      "project_id": "prj_delta_console",
+      "version_number": 1,
+      "title": "Customer acceptance record",
+      "source_kind": "acceptance_checklist",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "acceptance_evidence",
+      "authority_confirmed_by": "usr_delta_console_reviewer",
+      "path": "fixtures/inputs/sources/prj_delta_console/sv_delta_uat_001.md",
+      "content_sha256": "83ee598d25e25c65d2a43ac09bc89d8f3cdf653ac4fd2edcd83f027a960a9a6e",
+      "canonical_text_sha256": "83ee598d25e25c65d2a43ac09bc89d8f3cdf653ac4fd2edcd83f027a960a9a6e"
+    },
+    {
+      "id": "sv_delta_ready_001",
+      "document_id": "doc_delta_ready",
+      "project_id": "prj_delta_console",
+      "version_number": 1,
+      "title": "Readiness confirmation",
+      "source_kind": "project_export",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_delta_console_reviewer",
+      "path": "fixtures/inputs/sources/prj_delta_console/sv_delta_ready_001.md",
+      "content_sha256": "f3f1ddcfbd3039ff251c0d1115dc19c2fb85ff0334efc40131a3c1188e894b78",
+      "canonical_text_sha256": "f3f1ddcfbd3039ff251c0d1115dc19c2fb85ff0334efc40131a3c1188e894b78"
+    },
+    {
+      "id": "sv_elm_scope_001",
+      "document_id": "doc_elm_scope",
+      "project_id": "prj_elm_service",
+      "version_number": 1,
+      "title": "Signed launch baseline",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_elm_service_reviewer",
+      "path": "fixtures/inputs/sources/prj_elm_service/sv_elm_scope_001.md",
+      "content_sha256": "2cce28a80e01afdec0be2c30fda7d31b0d56ec944daf6773ee2ce54b9eb77891",
+      "canonical_text_sha256": "2cce28a80e01afdec0be2c30fda7d31b0d56ec944daf6773ee2ce54b9eb77891"
+    },
+    {
+      "id": "sv_elm_scope_002",
+      "document_id": "doc_elm_scope",
+      "project_id": "prj_elm_service",
+      "version_number": 2,
+      "title": "Draft consolidated scope amendment",
+      "source_kind": "change_order",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-21T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": "sv_elm_scope_001",
+      "authority": "proposal",
+      "authority_confirmed_by": "usr_elm_service_reviewer",
+      "path": "fixtures/inputs/sources/prj_elm_service/sv_elm_scope_002.md",
+      "content_sha256": "5ef0db391cd62528043581f94ea4353c4dcf646fd6ffaf3b6aa26c2bb0265efb",
+      "canonical_text_sha256": "5ef0db391cd62528043581f94ea4353c4dcf646fd6ffaf3b6aa26c2bb0265efb"
+    },
+    {
+      "id": "sv_fir_scope_001",
+      "document_id": "doc_fir_scope",
+      "project_id": "prj_fir_hub",
+      "version_number": 1,
+      "title": "Original accepted baseline",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_fir_hub_reviewer",
+      "path": "fixtures/inputs/sources/prj_fir_hub/sv_fir_scope_001.md",
+      "content_sha256": "606fc2ae8700f6aea618711ceea0d7aa5b38333f2cf6349d1d040ad91b1410df",
+      "canonical_text_sha256": "606fc2ae8700f6aea618711ceea0d7aa5b38333f2cf6349d1d040ad91b1410df"
+    },
+    {
+      "id": "sv_fir_scope_002",
+      "document_id": "doc_fir_scope",
+      "project_id": "prj_fir_hub",
+      "version_number": 2,
+      "title": "Accepted consolidated amendment",
+      "source_kind": "change_order",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-21T09:00:00Z",
+      "effective_at": "2026-10-21T09:00:00Z",
+      "supersedes_source_version_id": "sv_fir_scope_001",
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_fir_hub_reviewer",
+      "path": "fixtures/inputs/sources/prj_fir_hub/sv_fir_scope_002.md",
+      "content_sha256": "146ec37f460fb1bbc2cab671231f36b03263a0fe24dd46e5a33f8faddaf26607",
+      "canonical_text_sha256": "146ec37f460fb1bbc2cab671231f36b03263a0fe24dd46e5a33f8faddaf26607"
+    },
+    {
+      "id": "sv_fir_scope_003",
+      "document_id": "doc_fir_scope",
+      "project_id": "prj_fir_hub",
+      "version_number": 3,
+      "title": "Future-effective consolidated amendment",
+      "source_kind": "change_order",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-22T09:00:00Z",
+      "effective_at": "2026-11-10T09:00:00Z",
+      "supersedes_source_version_id": "sv_fir_scope_002",
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_fir_hub_reviewer",
+      "path": "fixtures/inputs/sources/prj_fir_hub/sv_fir_scope_003.md",
+      "content_sha256": "e8aabd278a95bf95546824997fc91562eaa62142e3c3c7430d8eff2310edf4ea",
+      "canonical_text_sha256": "e8aabd278a95bf95546824997fc91562eaa62142e3c3c7430d8eff2310edf4ea"
+    },
+    {
+      "id": "sv_grove_scope_001",
+      "document_id": "doc_grove_scope",
+      "project_id": "prj_grove_case",
+      "version_number": 1,
+      "title": "Accepted authentication criteria",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_grove_case_reviewer",
+      "path": "fixtures/inputs/sources/prj_grove_case/sv_grove_scope_001.md",
+      "content_sha256": "1b49c6fac34da1181555e21d8b955393b582820050f94a5d3c035279e0064f50",
+      "canonical_text_sha256": "1b49c6fac34da1181555e21d8b955393b582820050f94a5d3c035279e0064f50"
+    },
+    {
+      "id": "sv_grove_note_001",
+      "document_id": "doc_grove_note",
+      "project_id": "prj_grove_case",
+      "version_number": 1,
+      "title": "Delivery status note",
+      "source_kind": "meeting_notes",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_grove_case_reviewer",
+      "path": "fixtures/inputs/sources/prj_grove_case/sv_grove_note_001.md",
+      "content_sha256": "e748773efcdfcf02e20b1c9e0bfe047294c325aef560f3b720e7f7f6c77eb32c",
+      "canonical_text_sha256": "e748773efcdfcf02e20b1c9e0bfe047294c325aef560f3b720e7f7f6c77eb32c"
+    },
+    {
+      "id": "sv_heath_note_001",
+      "document_id": "doc_heath_note",
+      "project_id": "prj_heath_sync",
+      "version_number": 1,
+      "title": "Workshop notes",
+      "source_kind": "meeting_notes",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "unreviewed",
+      "authority_confirmed_by": null,
+      "path": "fixtures/inputs/sources/prj_heath_sync/sv_heath_note_001.md",
+      "content_sha256": "595a4ae5d3395a77ae4dff7168c6e2e6ab584ac3f07ecca8eb8ce2d9ec4e3c7f",
+      "canonical_text_sha256": "595a4ae5d3395a77ae4dff7168c6e2e6ab584ac3f07ecca8eb8ce2d9ec4e3c7f"
+    },
+    {
+      "id": "sv_heath_mail_001",
+      "document_id": "doc_heath_mail",
+      "project_id": "prj_heath_sync",
+      "version_number": 1,
+      "title": "Planning email",
+      "source_kind": "email",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_heath_sync_reviewer",
+      "path": "fixtures/inputs/sources/prj_heath_sync/sv_heath_mail_001.md",
+      "content_sha256": "1f785fa6901fd1d68c477d9f38d81b901fa415dc9c663b8aca2e1a0c1e85c6d9",
+      "canonical_text_sha256": "1f785fa6901fd1d68c477d9f38d81b901fa415dc9c663b8aca2e1a0c1e85c6d9"
+    },
+    {
+      "id": "sv_iris_scope_001",
+      "document_id": "doc_iris_scope",
+      "project_id": "prj_iris_import",
+      "version_number": 1,
+      "title": "Accepted launch scope",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_iris_import_reviewer",
+      "path": "fixtures/inputs/sources/prj_iris_import/sv_iris_scope_001.md",
+      "content_sha256": "748b12dfeafe174f234fbbd579371ee4a41aa802e058cfc4b0cd46e0ad4d7ed0",
+      "canonical_text_sha256": "748b12dfeafe174f234fbbd579371ee4a41aa802e058cfc4b0cd46e0ad4d7ed0"
+    },
+    {
+      "id": "sv_iris_mail_001",
+      "document_id": "doc_iris_mail",
+      "project_id": "prj_iris_import",
+      "version_number": 1,
+      "title": "External implementation plan email",
+      "source_kind": "email",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "proposal",
+      "authority_confirmed_by": "usr_iris_import_reviewer",
+      "path": "fixtures/inputs/sources/prj_iris_import/sv_iris_mail_001.md",
+      "content_sha256": "6858b1cdac2f22c790aaf0cbd4c4210193abd5ffce180379005e398b3b9ccea2",
+      "canonical_text_sha256": "6858b1cdac2f22c790aaf0cbd4c4210193abd5ffce180379005e398b3b9ccea2"
+    },
+    {
+      "id": "sv_juniper_scope_001",
+      "document_id": "doc_juniper_scope",
+      "project_id": "prj_juniper_portal",
+      "version_number": 1,
+      "title": "Accepted Juniper scope",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_juniper_portal_reviewer",
+      "path": "fixtures/inputs/sources/prj_juniper_portal/sv_juniper_scope_001.md",
+      "content_sha256": "b835bfc69577cd90fd6568cc434ad596c90bdf07e4f7984d74c26d8b417be515",
+      "canonical_text_sha256": "b835bfc69577cd90fd6568cc434ad596c90bdf07e4f7984d74c26d8b417be515"
+    },
+    {
+      "id": "sv_juniper_check_001",
+      "document_id": "doc_juniper_check",
+      "project_id": "prj_juniper_portal",
+      "version_number": 1,
+      "title": "Juniper completion claim",
+      "source_kind": "acceptance_checklist",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_juniper_portal_reviewer",
+      "path": "fixtures/inputs/sources/prj_juniper_portal/sv_juniper_check_001.md",
+      "content_sha256": "5f3da60d2e26065b223c41cbc46ebb0285eb490c146510c711260cd3b9df4150",
+      "canonical_text_sha256": "5f3da60d2e26065b223c41cbc46ebb0285eb490c146510c711260cd3b9df4150"
+    },
+    {
+      "id": "sv_kestrel_uat_001",
+      "document_id": "doc_kestrel_uat",
+      "project_id": "prj_kestrel_portal",
+      "version_number": 1,
+      "title": "Kestrel SSO acceptance — private project",
+      "source_kind": "acceptance_checklist",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "acceptance_evidence",
+      "authority_confirmed_by": "usr_kestrel_portal_reviewer",
+      "path": "fixtures/security_boundary/sources/prj_kestrel_portal/sv_kestrel_uat_001.md",
+      "content_sha256": "64578822bb1d75eae0827f266dd3a91ec67abdfc46704bcff0e1efd30a2ce1f7",
+      "canonical_text_sha256": "64578822bb1d75eae0827f266dd3a91ec67abdfc46704bcff0e1efd30a2ce1f7"
+    },
+    {
+      "id": "sv_larch_plan_001",
+      "document_id": "doc_larch_plan",
+      "project_id": "prj_larch_task",
+      "version_number": 1,
+      "title": "Accepted launch readiness plan",
+      "source_kind": "sow",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": "2026-10-20T09:00:00Z",
+      "supersedes_source_version_id": null,
+      "authority": "accepted_baseline",
+      "authority_confirmed_by": "usr_larch_task_reviewer",
+      "path": "fixtures/inputs/sources/prj_larch_task/sv_larch_plan_001.md",
+      "content_sha256": "ac058e722ff500933566dd587fafd9228edffebc559d78b460e26ab29b25357c",
+      "canonical_text_sha256": "ac058e722ff500933566dd587fafd9228edffebc559d78b460e26ab29b25357c"
+    },
+    {
+      "id": "sv_larch_dates_001",
+      "document_id": "doc_larch_dates",
+      "project_id": "prj_larch_task",
+      "version_number": 1,
+      "title": "Dependency update",
+      "source_kind": "email",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-20T09:00:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "context",
+      "authority_confirmed_by": "usr_larch_task_reviewer",
+      "path": "fixtures/inputs/sources/prj_larch_task/sv_larch_dates_001.md",
+      "content_sha256": "f7c9fcc4bc62cfa912b5bdb9aa9612c46b368b8eda3bddb5c783f7ec5e7eb050",
+      "canonical_text_sha256": "f7c9fcc4bc62cfa912b5bdb9aa9612c46b368b8eda3bddb5c783f7ec5e7eb050"
+    },
+    {
+      "id": "sv_hp_sow_002",
+      "document_id": "doc_hp_sow",
+      "project_id": "prj_harbour_portal",
+      "version_number": 2,
+      "title": "Consolidated scope amendment awaiting authority review",
+      "source_kind": "change_order",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-23T08:00:00Z",
+      "effective_at": "2026-10-23T09:00:00Z",
+      "supersedes_source_version_id": "sv_hp_sow_001",
+      "authority": "unreviewed",
+      "authority_confirmed_by": null,
+      "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_sow_002.md",
+      "content_sha256": "cc647dd5be7a262bc97ce31ba682faffafe8ebd0fe77bbdcc4781ffe7e5d8d47",
+      "canonical_text_sha256": "cc647dd5be7a262bc97ce31ba682faffafe8ebd0fe77bbdcc4781ffe7e5d8d47"
+    },
+    {
+      "id": "sv_hp_readiness_002",
+      "document_id": "doc_hp_readiness",
+      "project_id": "prj_harbour_portal",
+      "version_number": 2,
+      "title": "Readiness facts confirmed before launch",
+      "source_kind": "project_export",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-23T11:05:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "unreviewed",
+      "authority_confirmed_by": null,
+      "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_readiness_002.md",
+      "content_sha256": "e7dce0509df95b990bbaee83eeb4ff3f7249d9d0986482bb440525cc61118bbf",
+      "canonical_text_sha256": "e7dce0509df95b990bbaee83eeb4ff3f7249d9d0986482bb440525cc61118bbf"
+    },
+    {
+      "id": "sv_hp_acceptance_001",
+      "document_id": "doc_hp_acceptance",
+      "project_id": "prj_harbour_portal",
+      "version_number": 1,
+      "title": "SSO acceptance evidence pack",
+      "source_kind": "acceptance_checklist",
+      "mime_type": "text/markdown",
+      "created_at": "2026-10-24T10:35:00Z",
+      "effective_at": null,
+      "supersedes_source_version_id": null,
+      "authority": "unreviewed",
+      "authority_confirmed_by": null,
+      "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_acceptance_001.md",
+      "content_sha256": "d7002a37a5825c46b3b0192189f80f7541dc1132860566e0d7b896d0cb4e8f8b",
+      "canonical_text_sha256": "d7002a37a5825c46b3b0192189f80f7541dc1132860566e0d7b896d0cb4e8f8b"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scn_01",
+      "title": "Harbour staff portal — initial scope review",
+      "project_id": "prj_harbour_portal",
+      "actor_id": "usr_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_hp_sow_001",
+        "sv_hp_presales_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_02",
+      "title": "Bay employee portal — readiness review",
+      "project_id": "prj_bay_portal",
+      "actor_id": "usr_bay_portal_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_bay_scope_001",
+        "sv_bay_check_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_03",
+      "title": "Cedar staff access — dependency review",
+      "project_id": "prj_cedar_access",
+      "actor_id": "usr_cedar_access_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_cedar_plan_001",
+        "sv_cedar_dates_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_04",
+      "title": "Delta service console — handoff review",
+      "project_id": "prj_delta_console",
+      "actor_id": "usr_delta_console_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_delta_scope_001",
+        "sv_delta_uat_001",
+        "sv_delta_ready_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_05",
+      "title": "Elm service portal — amendment review",
+      "project_id": "prj_elm_service",
+      "actor_id": "usr_elm_service_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_elm_scope_001",
+        "sv_elm_scope_002"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_06",
+      "title": "Fir team hub — current baseline review",
+      "project_id": "prj_fir_hub",
+      "actor_id": "usr_fir_hub_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_fir_scope_001",
+        "sv_fir_scope_002",
+        "sv_fir_scope_003"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_07",
+      "title": "Grove case workspace — evidence review",
+      "project_id": "prj_grove_case",
+      "actor_id": "usr_grove_case_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_grove_scope_001",
+        "sv_grove_note_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_08",
+      "title": "Heath staff workspace — discovery review",
+      "project_id": "prj_heath_sync",
+      "actor_id": "usr_heath_sync_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_heath_note_001",
+        "sv_heath_mail_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_09",
+      "title": "Iris staff portal — external plan review",
+      "project_id": "prj_iris_import",
+      "actor_id": "usr_iris_import_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_iris_scope_001",
+        "sv_iris_mail_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": null
+    },
+    {
+      "id": "scn_10",
+      "title": "Juniper employee portal — acceptance review",
+      "project_id": "prj_juniper_portal",
+      "actor_id": "usr_juniper_portal_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_juniper_scope_001",
+        "sv_juniper_check_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": "fixtures/inputs/events/scn_10.json"
+    },
+    {
+      "id": "scn_11",
+      "title": "Larch staff access — review queue",
+      "project_id": "prj_larch_task",
+      "actor_id": "usr_larch_task_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_larch_plan_001",
+        "sv_larch_dates_001"
+      ],
+      "staged_source_version_ids": [],
+      "initial_board": {
+        "board_revision": 7,
+        "evidence_revision": 3,
+        "tasks": []
+      },
+      "events_path": "fixtures/inputs/events/scn_11.json"
+    },
+    {
+      "id": "scn_12",
+      "title": "Harbour staff portal — delivery review",
+      "project_id": "prj_harbour_portal",
+      "actor_id": "usr_reviewer",
+      "evaluation_as_of": "2026-10-22T12:00:00Z",
+      "request": "Review this IT implementation handoff for scope mismatches, acceptance gaps and dependency conflicts. Cite the supplied evidence and state what remains uncertain.",
+      "source_version_ids": [
+        "sv_hp_sow_001",
+        "sv_hp_presales_001",
+        "sv_hp_checklist_001",
+        "sv_hp_readiness_001"
+      ],
+      "staged_source_version_ids": [
+        "sv_hp_sow_002",
+        "sv_hp_readiness_002",
+        "sv_hp_acceptance_001"
+      ],
+      "initial_board": {
+        "board_revision": 1,
+        "evidence_revision": 1,
+        "tasks": []
+      },
+      "events_path": "fixtures/inputs/events/scn_12.json"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_01",
+  "project_id": "prj_harbour_portal",
+  "expected_outcome": "findings",
+  "evidence_sufficiency": "sufficient",
+  "expected_findings": [
+    {
+      "id": "fnd_hp_scope",
+      "kind": "scope_mismatch",
+      "status": "open",
+      "summary": "The presales SSO launch promise conflicts with the accepted phase-two baseline; its authority needs a reviewer decision.",
+      "commitment_descriptions": [
+        "SSO in phase two under the accepted baseline.",
+        "SSO at launch in a proposed presales commitment."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_hp_sow_001",
+          "start_char": 266,
+          "end_char": 380,
+          "quote": "Launch scope is password-based staff login; Microsoft Entra ID SSO is scheduled for phase two on 16 November 2026."
+        },
+        {
+          "source_version_id": "sv_hp_presales_001",
+          "start_char": 306,
+          "end_char": 382,
+          "quote": "We have promised your staff Microsoft Entra ID SSO at the 26 October launch."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_hp_sow_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_sow_001.md",
+          "line_start": 11,
+          "line_end": 11
+        },
+        {
+          "source_version_id": "sv_hp_presales_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_presales_001.md",
+          "line_start": 12,
+          "line_end": 12
+        }
+      ],
+      "must_not_claim": [
+        "Do not treat the presales email as an accepted scope change."
+      ]
+    }
+  ],
+  "expected_active_baseline_source_version_ids": [
+    "sv_hp_sow_001"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [],
+  "must_not_claim": [],
+  "expected_events": []
+}

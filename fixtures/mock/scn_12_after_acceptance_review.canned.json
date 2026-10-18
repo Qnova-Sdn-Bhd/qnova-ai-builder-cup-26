@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "provider_mode": "mock",
+  "canned": true,
+  "live_accuracy_evidence": false,
+  "scenario_id": "scn_12",
+  "snapshot_key": "after_acceptance_review",
+  "supported_snapshot": {
+    "project_id": "prj_harbour_portal",
+    "evidence_revision": 9,
+    "evaluation_as_of": "2026-10-24T11:01:00Z",
+    "source_versions": [
+      {
+        "id": "sv_hp_acceptance_001",
+        "canonical_text_sha256": "d7002a37a5825c46b3b0192189f80f7541dc1132860566e0d7b896d0cb4e8f8b",
+        "authority": "acceptance_evidence",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_checklist_001",
+        "canonical_text_sha256": "a31c0bb53717f45e1b953ab51ae2a93c638d7bf2337320ff2805bb83af60c97b",
+        "authority": "context",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_presales_001",
+        "canonical_text_sha256": "82a2706fb798c6aa31d4b9df3770494ac2c11d1c1034bc1586aa9572ade30c25",
+        "authority": "proposal",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_readiness_001",
+        "canonical_text_sha256": "acfc2c796ae30bfb0a83a4cdf0c00e82095251f99e93ac3234dfba739b821a5e",
+        "authority": "context",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_readiness_002",
+        "canonical_text_sha256": "e7dce0509df95b990bbaee83eeb4ff3f7249d9d0986482bb440525cc61118bbf",
+        "authority": "context",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_sow_001",
+        "canonical_text_sha256": "e80ddb09fecc09160a0bd0273a78268f9380c5fa9290107debede579b2793406",
+        "authority": "accepted_baseline",
+        "effective_at": "2026-10-20T09:00:00Z"
+      },
+      {
+        "id": "sv_hp_sow_002",
+        "canonical_text_sha256": "cc647dd5be7a262bc97ce31ba682faffafe8ebd0fe77bbdcc4781ffe7e5d8d47",
+        "authority": "accepted_baseline",
+        "effective_at": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "commitment_statuses": {
+      "cmt_hp_sso_phase2": "superseded",
+      "cmt_hp_sso_launch": "accepted"
+    }
+  },
+  "snapshot_fingerprint_sha256": "352618c270506f617fc85dc14ec8749281b4c3d22698ef17af4b5924b8c57984",
+  "notice": "CANNED DEMONSTRATION RESPONSE. This exercises UI flow only and is never a live-model accuracy result.",
+  "response": {
+    "proposed_commitments": [],
+    "findings": [],
+    "coverage_warnings": [
+      "No new discrepancies are identified in the current authorized packet. Historical findings remain open until a reviewer resolves them; the launch commitment also needs a separate closure review."
+    ]
+  }
+}

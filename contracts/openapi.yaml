@@ -1,0 +1,1086 @@
+openapi: 3.1.0
+info:
+  title: Handoff Guardian API
+  version: 0.2.0
+  description: Application implemented with offline verification; cloud deployment remains unverified. Google Cloud prototype API. Public application
+    routes verify Identity Platform ID tokens, password provider, verified email and server-side project membership. Worker routes use a separate IAM-protected
+    Cloud Run service. Domain invariants are in docs/DOMAIN_AND_API.md and docs/SECURITY_AND_ACTIONS.md.
+servers:
+- {url: /api/v1, description: Relative to the configured deployed API origin; no local or demo deployment.}
+security:
+- IdentityPlatformAuth: []
+paths:
+  /projects:
+    get:
+      operationId: listProjects
+      summary: List only projects accessible to the actor
+      responses:
+        '200':
+          description: Authorized projects
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [projects]
+                properties:
+                  projects:
+                    type: array
+                    items: {$ref: '#/components/schemas/Project'}
+        default: {$ref: '#/components/responses/Error'}
+    post:
+      operationId: createProject
+      summary: Create an empty project as an existing project reviewer
+      description: Rechecks reviewer membership on reviewer_project_id transactionally. Creates only the creator's reviewer membership and two audit events, with zero revisions and a real business clock. Identical idempotent replay returns the same project after current authorization checks.
+      parameters:
+      - {$ref: '#/components/parameters/IdempotencyKey'}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/ProjectCreateRequest'}
+      responses:
+        '201':
+          description: Empty project created or identical request replayed
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Project'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/workspace:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    get:
+      operationId: getWorkspace
+      summary: Read the bounded project workspace and audit history
+      responses:
+        '200':
+          description: Authorized workspace; source bodies fetched separately
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Workspace'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/sources:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    post:
+      operationId: uploadSource
+      summary: Queue immutable TXT, Markdown, or PDF ingestion as unreviewed
+      description: Reviewer only. Required Idempotency-Key binds metadata and original-byte hash. Metadata is JSON-encoded
+        SourceUploadMetadata. Enforce 10 MiB, 15 PDF pages, and 200000 canonical characters. Every PDF requires
+        Document AI OCR; no local extraction fallback. Original GCS object and Firestore source/job/outbox are durable
+        before 202. Poll source state; canonical text/hash are null until ready.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [file, metadata]
+              properties:
+                file: {type: string, format: binary}
+                metadata: {type: string, description: JSON-encoded SourceUploadMetadata}
+      responses:
+        '202':
+          description: Durable source accepted; identical replay returns the same source in its current state
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/SourceVersion'}
+        default: {$ref: '#/components/responses/Error'}
+      parameters:
+      - {$ref: '#/components/parameters/IdempotencyKey'}
+  /projects/{project_id}/sources/{source_version_id}:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - {$ref: '#/components/parameters/SourceVersionId'}
+    get:
+      operationId: getSourceVersion
+      summary: Read authorized canonical text for exact evidence highlighting
+      responses:
+        '200':
+          description: Source and immutable canonical text
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/SourceVersion'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/sources/{source_version_id}/review:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - {$ref: '#/components/parameters/SourceVersionId'}
+    post:
+      operationId: reviewSourceAuthority
+      summary: Review source authority and effective supersession metadata
+      description: Reviewer only; source must be ready. Audits reviewed authority/effective metadata, increments
+        evidence revision, and logically invalidates old proposal bindings.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/SourceReviewRequest'}
+      responses:
+        '200':
+          description: Reviewed source and updated project revisions
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [source, project]
+                properties:
+                  source: {$ref: '#/components/schemas/SourceVersion'}
+                  project: {$ref: '#/components/schemas/Project'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/analyses:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    post:
+      operationId: startAnalysis
+      summary: Queue one bounded read-only analysis against an evidence snapshot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/AnalysisRequest'}
+      responses:
+        '202':
+          description: Durable queued run; poll by its ID
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/AnalysisRun'}
+        default: {$ref: '#/components/responses/Error'}
+      description: Reviewer only; required Idempotency-Key binds the request. Reject active pending/failed or oversized
+        evidence packets. Withdrawn failed sources are preserved as deterministic coverage warnings and cannot silently
+        disappear from coverage reporting. Persist snapshot/run/job/outbox before 202. Only live Vertex AI Agent
+        Engine/Gemini is deployed; provider failures never use canned fallback.
+      parameters:
+      - {$ref: '#/components/parameters/IdempotencyKey'}
+  /projects/{project_id}/analyses/{analysis_run_id}:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - {$ref: '#/components/parameters/AnalysisRunId'}
+    get:
+      operationId: getAnalysis
+      summary: Poll run status, coverage warnings, and validated results
+      responses:
+        '200':
+          description: Run, including explicit failed or stale states
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/AnalysisRun'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/action-proposals:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    post:
+      operationId: createActionProposal
+      summary: Save an immutable proposed blocker task without executing it
+      description: Reviewer only. Require a current succeeded analysis, open finding, current revisions, and an
+        existing project-member owner. Replacing an unexecuted proposal makes the old proposal stale; never edits
+        its payload in place.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/ActionCreateRequest'}
+      responses:
+        '201':
+          description: Stored proposal and server-generated binding
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ActionProposal'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/action-proposals/{action_id}/review:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - {$ref: '#/components/parameters/ActionId'}
+    post:
+      operationId: reviewActionProposal
+      summary: Approve or reject the exact saved binding
+      description: Reviewer only. Approval creates no task.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/ActionReviewRequest'}
+      responses:
+        '200':
+          description: Reviewed proposal
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ActionProposal'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/action-proposals/{action_id}/execute:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - {$ref: '#/components/parameters/ActionId'}
+    post:
+      operationId: executeActionProposal
+      summary: Atomically create exactly one persisted task from a current approval
+      description: Reviewer only. Revalidate approval, authority, all bound revisions, hash, finding state, and
+        owner. A replay returns the original task. A new Idempotency-Key cannot create another task for the same
+        action. Task creation never closes a commitment or resolves a finding.
+      parameters:
+      - {$ref: '#/components/parameters/IdempotencyKey'}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [binding]
+              properties:
+                binding: {$ref: '#/components/schemas/ActionBinding'}
+      responses:
+        '201':
+          description: New task committed with execution and audit records
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ExecutionResult'}
+        '200':
+          description: Authorized replay of the already committed task
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ExecutionResult'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/commitments/{commitment_id}/review:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - name: commitment_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Id'}
+    post:
+      operationId: reviewCommitment
+      summary: Accept a proposed term or close an accepted commitment with reviewed evidence
+      description: Reviewer only. Accept needs accepted-baseline evidence; close needs acceptance-evidence sources
+        and an explanation of criteria satisfaction. Accept may atomically supersede an explicitly referenced accepted
+        term. Close cannot include a supersedes_commitment_id. Increment evidence revision.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/CommitmentReviewRequest'}
+      responses:
+        '200':
+          description: Reviewed commitment and current project
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [commitment, superseded_commitment, project]
+                properties:
+                  commitment: {$ref: '#/components/schemas/Commitment'}
+                  superseded_commitment:
+                    anyOf:
+                    - {$ref: '#/components/schemas/Commitment'}
+                    - {type: 'null'}
+                  project: {$ref: '#/components/schemas/Project'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/findings/{finding_id}/review:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - name: finding_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Id'}
+    post:
+      operationId: reviewFinding
+      summary: Record a human finding disposition independently of task/commitment state
+      description: Reviewer only. A resolution requires evidence; dismissal requires a reason. Increments finding
+        version and stales its unexecuted proposals. Does not close commitments or manufacture a current successful
+        analysis.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/FindingReviewRequest'}
+      responses:
+        '200':
+          description: Reviewed finding
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Finding'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/sources/{source_version_id}/original:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - {$ref: '#/components/parameters/SourceVersionId'}
+    get:
+      operationId: getSourceOriginal
+      summary: Stream the authorized immutable original from its pinned GCS generation
+      description: Fresh Identity Platform token and project membership required. Original remains inspectable if
+        extraction failed. Safe attachment filename, no public object URL, and no-store response.
+      responses:
+        '200':
+          description: Original file bytes
+          headers:
+            Content-Disposition:
+              schema: {type: string}
+              description: Attachment with server-sanitized filename
+            Cache-Control:
+              schema: {type: string, const: 'private, no-store'}
+            X-Content-Type-Options:
+              schema: {type: string, const: nosniff}
+          content:
+            application/pdf:
+              schema: {type: string, format: binary}
+            text/plain:
+              schema: {type: string, format: binary}
+            text/markdown:
+              schema: {type: string, format: binary}
+        default: {$ref: '#/components/responses/Error'}
+  /internal/jobs/{job_id}/run:
+    servers:
+    - {url: 'https://worker.invalid', description: Documentation placeholder only. Replace with exact WORKER_SERVICE_URL;
+        these paths are not exposed on the public API.}
+    parameters:
+    - {$ref: '#/components/parameters/JobId'}
+    post:
+      operationId: runDurableJob
+      security:
+      - WorkerOIDC: []
+      summary: Private Cloud Tasks target for a durable ingestion or analysis job
+      description: Cloud Run IAM service authentication. Load job from Firestore, verify dispatch generation, claim
+        bounded lease/fence, and reserve attempt before external calls. Terminal/outdated dispatch is a successful
+        no-op; active lease or retryable dependency failure returns HTTP 503; terminal failed job returns HTTP 200
+        with failed outcome. No user actions are executed by this route.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/JobDispatchRequest'}
+      responses:
+        '200':
+          description: Durable outcome or idempotent no-op
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/JobDispatchResult'}
+        '503': {$ref: '#/components/responses/Error'}
+        default: {$ref: '#/components/responses/Error'}
+  /internal/recover:
+    servers:
+    - {url: 'https://worker.invalid', description: Documentation placeholder only. Replace with exact WORKER_SERVICE_URL;
+        these paths are not exposed on the public API.}
+    post:
+      operationId: recoverDurableJobs
+      security:
+      - WorkerOIDC: []
+      summary: Private Scheduler target for bounded outbox and expired-lease recovery
+      description: Cloud Run IAM service authentication. Process bounded batches only, preserve durable attempt
+        budgets, enqueue with configured Tasks OIDC identity; request cannot select arbitrary sources/URLs/projects.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/RecoveryRequest'}
+      responses:
+        '200':
+          description: Counts for this bounded recovery pass
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/RecoveryResult'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/sources/{source_version_id}/retry-ingestion:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - {$ref: '#/components/parameters/SourceVersionId'}
+    post:
+      operationId: retrySourceIngestion
+      summary: Queue a new bounded ingestion job for a terminal failed source
+      description: Reviewer only. Require terminal failed, unreviewed, nonwithdrawn source and current revision.
+        Required Idempotency-Key. New job/outbox has its own maximum three attempts; old job remains terminal. Original
+        bytes/generation/hash and extraction configuration stay unchanged. Set queued, clear visible failure, increment
+        evidence revision, and audit atomically. Identical retry returns the saved operation result.
+      parameters:
+      - {$ref: '#/components/parameters/IdempotencyKey'}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/SourceRetryRequest'}
+      responses:
+        '202':
+          description: Source and project after the durable reviewed operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [source, project]
+                properties:
+                  source: {$ref: '#/components/schemas/SourceVersion'}
+                  project: {$ref: '#/components/schemas/Project'}
+        default: {$ref: '#/components/responses/Error'}
+  /projects/{project_id}/sources/{source_version_id}/withdraw-failed:
+    parameters:
+    - {$ref: '#/components/parameters/ProjectId'}
+    - {$ref: '#/components/parameters/SourceVersionId'}
+    post:
+      operationId: withdrawFailedSource
+      summary: Withdraw terminal failed evidence with an audited reason
+      description: Reviewer only. Require terminal failed/unreviewed/nonwithdrawn source and current revision. Required Idempotency-Key.
+        Never withdraw a ready source or accepted baseline. Preserve original/history and failed status; record
+        withdrawn_at/by/reason, increment evidence revision, and audit. Remaining active packet can run but must
+        display deterministic coverage warnings for withdrawn failures. Withdrawal never resolves findings or closes
+        commitments.
+      parameters:
+      - {$ref: '#/components/parameters/IdempotencyKey'}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/SourceWithdrawRequest'}
+      responses:
+        '200':
+          description: Source and project after the durable reviewed operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [source, project]
+                properties:
+                  source: {$ref: '#/components/schemas/SourceVersion'}
+                  project: {$ref: '#/components/schemas/Project'}
+        default: {$ref: '#/components/responses/Error'}
+components:
+  securitySchemes:
+    IdentityPlatformAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Identity Platform/Firebase ID token verified by the API against its configured project. Requires
+        firebase.sign_in_provider=password and email_verified=true. Server resolves UID binding and project membership;
+        registration alone grants no project access. Not a raw Google OAuth token.
+    WorkerOIDC:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Google service-account OIDC token accepted by private Cloud Run IAM. Audience is the exact WORKER_SERVICE_URL
+        origin. Browser Identity Platform tokens do not grant worker access.
+  parameters:
+    ProjectId:
+      name: project_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Id'}
+    SourceVersionId:
+      name: source_version_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Id'}
+    AnalysisRunId:
+      name: analysis_run_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Id'}
+    ActionId:
+      name: action_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Id'}
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: {type: string, minLength: 8, maxLength: 200}
+      description: Opaque caller key scoped to actor/project/operation; identical retry returns the saved result,
+        changed request is 409.
+    JobId:
+      name: job_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Id'}
+  responses:
+    Error:
+      description: Standard safe error envelope; HTTP 401 unauthenticated, 403 insufficient role, 404 absent/inaccessible,
+        409 stale/conflict, 413 too large, 415 type, 422 invalid content/evidence/state, or 503 provider unavailable.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: false
+            required: [error]
+            properties:
+              error: {$ref: '#/components/schemas/ErrorDetail'}
+  schemas:
+    Id: {type: string, minLength: 1, maxLength: 128, pattern: '^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$'}
+    Hash: {type: string, pattern: '^[0-9a-f]{64}$'}
+    Revision: {type: integer, minimum: 0}
+    NullableId:
+      anyOf:
+      - {$ref: '#/components/schemas/Id'}
+      - {type: 'null'}
+    NullableTimestamp:
+      type: [string, 'null']
+      format: date-time
+    NullableDate:
+      type: [string, 'null']
+      format: date
+    Role:
+      type: string
+      enum: [viewer, reviewer]
+    Authority:
+      type: string
+      enum: [unreviewed, accepted_baseline, proposal, context, acceptance_evidence]
+    SourceKind:
+      type: string
+      enum: [sow, change_order, email, meeting_notes, acceptance_checklist, project_export, other]
+    ErrorDetail:
+      type: object
+      additionalProperties: false
+      required: [code, message, request_id]
+      properties:
+        code: {type: string, maxLength: 80}
+        message: {type: string, maxLength: 2000}
+        request_id: {$ref: '#/components/schemas/Id'}
+    User:
+      type: object
+      additionalProperties: false
+      required: [id, email, display_name]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        email: {type: string, format: email, description: Domain contact label. Synthetic fixture .test values are
+            not Google sign-in accounts and do not establish login authority.}
+        display_name: {type: string, minLength: 1, maxLength: 120}
+    Membership:
+      type: object
+      additionalProperties: false
+      required: [user_id, role]
+      properties:
+        user_id: {$ref: '#/components/schemas/Id'}
+        role: {$ref: '#/components/schemas/Role'}
+    BusinessClock:
+      type: object
+      additionalProperties: false
+      required: [mode, as_of]
+      properties:
+        mode:
+          type: string
+          enum: [real, synthetic]
+        as_of: {type: string, format: date-time}
+      description: Operator-controlled synthetic time only on explicitly synthetic projects; otherwise current server
+        time. Browser cannot set it. Auth, leases and audit timestamps remain real UTC. Clock advancement increments
+        evidence_revision.
+    ProjectCreateRequest:
+      type: object
+      additionalProperties: false
+      required: [name, timezone, reviewer_project_id]
+      properties:
+        name: {type: string, minLength: 1, maxLength: 200}
+        timezone: {type: string, minLength: 1, maxLength: 100, description: Valid IANA timezone}
+        reviewer_project_id: {$ref: '#/components/schemas/Id'}
+    Project:
+      type: object
+      additionalProperties: false
+      required: [id, name, timezone, business_clock, evidence_revision, board_revision]
+      properties:
+        business_clock: {$ref: '#/components/schemas/BusinessClock'}
+        id: {$ref: '#/components/schemas/Id'}
+        name: {type: string, minLength: 1, maxLength: 200}
+        timezone: {type: string, description: IANA time-zone identifier}
+        evidence_revision: {$ref: '#/components/schemas/Revision'}
+        board_revision: {$ref: '#/components/schemas/Revision'}
+    EvidenceSpan:
+      type: object
+      additionalProperties: false
+      required: [source_version_id, start_char, end_char, quote]
+      properties:
+        source_version_id: {$ref: '#/components/schemas/Id'}
+        start_char: {type: integer, minimum: 0, description: Inclusive Unicode code-point offset}
+        end_char: {type: integer, minimum: 1, description: Exclusive Unicode code-point offset}
+        quote: {type: string, minLength: 1, maxLength: 10000}
+        page_number: {type: integer, minimum: 1}
+    SourceMetadata:
+      type: object
+      required: [id, document_id, project_id, version_number, title, source_kind, mime_type, created_at, effective_at,
+        supersedes_source_version_id, authority, authority_confirmed_by, content_sha256, canonical_text_sha256,
+        ingestion_status, ingestion_failure, page_count, extraction_method, processor_version, withdrawn_at, withdrawn_by,
+        withdrawal_reason]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        document_id: {$ref: '#/components/schemas/Id'}
+        project_id: {$ref: '#/components/schemas/Id'}
+        version_number: {type: integer, minimum: 1}
+        title: {type: string, minLength: 1, maxLength: 300}
+        source_kind: {$ref: '#/components/schemas/SourceKind'}
+        mime_type:
+          type: string
+          enum: [text/plain, text/markdown, application/pdf]
+        created_at: {type: string, format: date-time, description: 'Declared source creation time, not authority'}
+        effective_at: {$ref: '#/components/schemas/NullableTimestamp'}
+        supersedes_source_version_id: {$ref: '#/components/schemas/NullableId'}
+        authority: {$ref: '#/components/schemas/Authority'}
+        authority_confirmed_by: {$ref: '#/components/schemas/NullableId'}
+        content_sha256: {$ref: '#/components/schemas/Hash'}
+        canonical_text_sha256:
+          anyOf:
+          - {$ref: '#/components/schemas/Hash'}
+          - {type: 'null'}
+        ingestion_status:
+          type: string
+          enum: [queued, processing, ready, failed]
+        ingestion_failure:
+          anyOf:
+          - {$ref: '#/components/schemas/ErrorDetail'}
+          - {type: 'null'}
+        page_count:
+          type: [integer, 'null']
+          minimum: 1
+          maximum: 15
+        extraction_method:
+          type: [string, 'null']
+          enum: [utf8, document_ai_ocr, null]
+        processor_version:
+          type: [string, 'null']
+          description: Full configured Document AI processor-version resource for a processed PDF; otherwise null.
+        withdrawn_at: {$ref: '#/components/schemas/NullableTimestamp'}
+        withdrawn_by: {$ref: '#/components/schemas/NullableId'}
+        withdrawal_reason:
+          type: [string, 'null']
+          maxLength: 3000
+          description: Required reason for reviewed failed-only withdrawal; null if active. Original remains preserved.
+    SourceVersion:
+      allOf:
+      - {$ref: '#/components/schemas/SourceMetadata'}
+      - type: object
+        required: [canonical_text, page_spans]
+        properties:
+          canonical_text:
+            type: [string, 'null']
+            minLength: 1
+            maxLength: 200000
+            description: Loaded from private generation-pinned GCS only for this authorized response; null until
+              ready.
+          page_spans:
+            type: array
+            maxItems: 15
+            items: {$ref: '#/components/schemas/PageSpan'}
+      unevaluatedProperties: false
+    SourceUploadMetadata:
+      type: object
+      additionalProperties: false
+      required: [document_id, version_number, title, source_kind, created_at, effective_at, supersedes_source_version_id,
+        expected_evidence_revision]
+      properties:
+        document_id: {$ref: '#/components/schemas/Id'}
+        version_number: {type: integer, minimum: 1}
+        title: {type: string, minLength: 1, maxLength: 300}
+        source_kind: {$ref: '#/components/schemas/SourceKind'}
+        created_at: {type: string, format: date-time}
+        effective_at: {$ref: '#/components/schemas/NullableTimestamp'}
+        supersedes_source_version_id: {$ref: '#/components/schemas/NullableId'}
+        expected_evidence_revision: {$ref: '#/components/schemas/Revision'}
+    SourceReviewRequest:
+      type: object
+      additionalProperties: false
+      required: [authority, effective_at, supersedes_source_version_id, reason, expected_evidence_revision]
+      properties:
+        authority: {$ref: '#/components/schemas/Authority'}
+        effective_at: {$ref: '#/components/schemas/NullableTimestamp'}
+        supersedes_source_version_id: {$ref: '#/components/schemas/NullableId'}
+        reason: {type: string, minLength: 1, maxLength: 2000}
+        expected_evidence_revision: {$ref: '#/components/schemas/Revision'}
+    Commitment:
+      type: object
+      additionalProperties: false
+      required: [id, project_id, description, status, acceptance_criteria, owner_id, due_date, evidence, supersedes_commitment_id,
+        version]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        project_id: {$ref: '#/components/schemas/Id'}
+        description: {type: string, minLength: 1, maxLength: 2000}
+        status:
+          type: string
+          enum: [proposed, accepted, superseded, closed]
+        acceptance_criteria:
+          type: array
+          maxItems: 30
+          items: {type: string, minLength: 1, maxLength: 1000}
+        owner_id: {$ref: '#/components/schemas/NullableId'}
+        due_date: {$ref: '#/components/schemas/NullableDate'}
+        evidence:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items: {$ref: '#/components/schemas/EvidenceSpan'}
+        supersedes_commitment_id: {$ref: '#/components/schemas/NullableId'}
+        version: {type: integer, minimum: 1}
+    Finding:
+      type: object
+      additionalProperties: false
+      required: [id, project_id, analysis_run_id, kind, title, explanation, commitment_ids, evidence, status, version]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        project_id: {$ref: '#/components/schemas/Id'}
+        analysis_run_id: {$ref: '#/components/schemas/Id'}
+        kind:
+          type: string
+          enum: [scope_mismatch, acceptance_gap, dependency_conflict]
+        title: {type: string, minLength: 1, maxLength: 200}
+        explanation: {type: string, minLength: 1, maxLength: 3000}
+        commitment_ids:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items: {$ref: '#/components/schemas/Id'}
+        evidence:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items: {$ref: '#/components/schemas/EvidenceSpan'}
+        status:
+          type: string
+          enum: [open, dismissed, resolved]
+        version: {type: integer, minimum: 1}
+    AnalysisRequest:
+      type: object
+      additionalProperties: false
+      required: [expected_evidence_revision, evaluation_as_of]
+      properties:
+        expected_evidence_revision: {$ref: '#/components/schemas/Revision'}
+        evaluation_as_of: {type: string, format: date-time, description: Current or historical relative to Project.business_clock;
+            the request cannot change that clock}
+    AnalysisRun:
+      type: object
+      additionalProperties: false
+      required: [id, project_id, provider, model, prompt_version, evidence_revision, evaluation_as_of, source_version_ids,
+        status, created_at, started_at, completed_at, warnings, findings, candidate_commitments, failure]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        project_id: {$ref: '#/components/schemas/Id'}
+        provider: {type: string, const: vertex}
+        model: {type: string, minLength: 1, description: Configured available Gemini model; actual returned metadata
+            is recorded in protected run provenance.}
+        prompt_version: {type: string, minLength: 1, maxLength: 100}
+        evidence_revision: {$ref: '#/components/schemas/Revision'}
+        evaluation_as_of: {type: string, format: date-time}
+        source_version_ids:
+          type: array
+          maxItems: 30
+          items: {$ref: '#/components/schemas/Id'}
+        status:
+          type: string
+          enum: [queued, running, succeeded, failed, stale]
+        created_at: {type: string, format: date-time}
+        started_at: {$ref: '#/components/schemas/NullableTimestamp'}
+        completed_at: {$ref: '#/components/schemas/NullableTimestamp'}
+        warnings:
+          type: array
+          maxItems: 50
+          items: {type: string, maxLength: 1000}
+        findings:
+          type: array
+          maxItems: 100
+          items: {$ref: '#/components/schemas/Finding'}
+        candidate_commitments:
+          type: array
+          maxItems: 100
+          items: {$ref: '#/components/schemas/Commitment'}
+        failure:
+          anyOf:
+          - {$ref: '#/components/schemas/ErrorDetail'}
+          - {type: 'null'}
+    ProviderCandidateCommitment:
+      type: object
+      additionalProperties: false
+      description: Provider-local candidate; server supplies project, status, version, and persistent ID mapping.
+      required: [id, description, acceptance_criteria, owner_id, due_date, evidence]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        description: {type: string, minLength: 1, maxLength: 2000}
+        acceptance_criteria:
+          type: array
+          maxItems: 30
+          items: {type: string, minLength: 1, maxLength: 1000}
+        owner_id: {$ref: '#/components/schemas/NullableId'}
+        due_date: {$ref: '#/components/schemas/NullableDate'}
+        evidence:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items: {$ref: '#/components/schemas/EvidenceSpan'}
+    ProviderFinding:
+      type: object
+      additionalProperties: false
+      description: Provider-local finding; cannot set lifecycle state or authorize actions.
+      required: [id, kind, title, explanation, commitment_ids, evidence]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        kind:
+          type: string
+          enum: [scope_mismatch, acceptance_gap, dependency_conflict]
+        title: {type: string, minLength: 1, maxLength: 200}
+        explanation: {type: string, minLength: 1, maxLength: 3000}
+        commitment_ids:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items: {$ref: '#/components/schemas/Id'}
+        evidence:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items: {$ref: '#/components/schemas/EvidenceSpan'}
+    ProviderAnalysisResult:
+      type: object
+      additionalProperties: false
+      description: Non-HTTP final ADK/worker boundary, also used by offline test doubles. Live Gemini supplies source
+        IDs/quotes to a deterministic ADK span resolver; worker independently revalidates final spans. IDs are local
+        aliases, never permissions or evaluator labels. Serialized output cap 512 KiB.
+      required: [proposed_commitments, findings, coverage_warnings]
+      properties:
+        proposed_commitments:
+          type: array
+          maxItems: 100
+          items: {$ref: '#/components/schemas/ProviderCandidateCommitment'}
+        findings:
+          type: array
+          maxItems: 100
+          items: {$ref: '#/components/schemas/ProviderFinding'}
+        coverage_warnings:
+          type: array
+          maxItems: 50
+          items: {type: string, maxLength: 1000}
+    ActionPayload:
+      type: object
+      additionalProperties: false
+      required: [finding_id, title, description, owner_id, due_date]
+      properties:
+        finding_id: {$ref: '#/components/schemas/Id'}
+        title: {type: string, minLength: 1, maxLength: 200}
+        description: {type: string, minLength: 1, maxLength: 4000}
+        owner_id: {$ref: '#/components/schemas/Id'}
+        due_date: {$ref: '#/components/schemas/NullableDate'}
+    ActionBinding:
+      type: object
+      additionalProperties: false
+      required: [payload_hash, evidence_revision, base_board_revision, finding_version]
+      properties:
+        payload_hash: {$ref: '#/components/schemas/Hash'}
+        evidence_revision: {$ref: '#/components/schemas/Revision'}
+        base_board_revision: {$ref: '#/components/schemas/Revision'}
+        finding_version: {type: integer, minimum: 1}
+    ActionCreateRequest:
+      type: object
+      additionalProperties: false
+      required: [analysis_run_id, payload, expected_evidence_revision, expected_board_revision, expected_finding_version,
+        replaces_action_id]
+      properties:
+        analysis_run_id: {$ref: '#/components/schemas/Id'}
+        payload: {$ref: '#/components/schemas/ActionPayload'}
+        expected_evidence_revision: {$ref: '#/components/schemas/Revision'}
+        expected_board_revision: {$ref: '#/components/schemas/Revision'}
+        expected_finding_version: {type: integer, minimum: 1}
+        replaces_action_id: {$ref: '#/components/schemas/NullableId'}
+    ActionReviewRequest:
+      type: object
+      additionalProperties: false
+      required: [decision, note, binding]
+      properties:
+        decision:
+          type: string
+          enum: [approve, reject]
+        note: {type: string, maxLength: 2000}
+        binding: {$ref: '#/components/schemas/ActionBinding'}
+    Approval:
+      type: object
+      additionalProperties: false
+      required: [id, reviewer_id, decision, note, reviewed_at, binding]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        reviewer_id: {$ref: '#/components/schemas/Id'}
+        decision:
+          type: string
+          enum: [approve, reject]
+        note: {type: string, maxLength: 2000}
+        reviewed_at: {type: string, format: date-time}
+        binding: {$ref: '#/components/schemas/ActionBinding'}
+    ActionProposal:
+      type: object
+      additionalProperties: false
+      required: [id, project_id, analysis_run_id, type, payload, binding, status, created_by, created_at, replaces_action_id,
+        approval, task_id]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        project_id: {$ref: '#/components/schemas/Id'}
+        analysis_run_id: {$ref: '#/components/schemas/Id'}
+        type:
+          type: string
+          enum: [create_blocker_task]
+        payload: {$ref: '#/components/schemas/ActionPayload'}
+        binding: {$ref: '#/components/schemas/ActionBinding'}
+        status:
+          type: string
+          enum: [proposed, approved, rejected, stale, executed]
+        created_by: {$ref: '#/components/schemas/Id'}
+        created_at: {type: string, format: date-time}
+        replaces_action_id: {$ref: '#/components/schemas/NullableId'}
+        approval:
+          anyOf:
+          - {$ref: '#/components/schemas/Approval'}
+          - {type: 'null'}
+        task_id: {$ref: '#/components/schemas/NullableId'}
+    Task:
+      type: object
+      additionalProperties: false
+      required: [id, project_id, action_proposal_id, title, description, owner_id, due_date, status, version]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        project_id: {$ref: '#/components/schemas/Id'}
+        action_proposal_id: {$ref: '#/components/schemas/NullableId'}
+        title: {type: string, minLength: 1, maxLength: 200}
+        description: {type: string, maxLength: 4000}
+        owner_id: {$ref: '#/components/schemas/Id'}
+        due_date: {$ref: '#/components/schemas/NullableDate'}
+        status:
+          type: string
+          enum: [open, in_progress, done]
+        version: {type: integer, minimum: 1}
+    ExecutionResult:
+      type: object
+      additionalProperties: false
+      required: [action, task, replayed]
+      properties:
+        action: {$ref: '#/components/schemas/ActionProposal'}
+        task: {$ref: '#/components/schemas/Task'}
+        replayed: {type: boolean}
+    CommitmentReviewRequest:
+      type: object
+      additionalProperties: false
+      required: [decision, reason, evidence, expected_commitment_version, expected_evidence_revision, supersedes_commitment_id]
+      properties:
+        decision:
+          type: string
+          enum: [accept, close]
+        reason: {type: string, minLength: 1, maxLength: 3000}
+        evidence:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items: {$ref: '#/components/schemas/EvidenceSpan'}
+        expected_commitment_version: {type: integer, minimum: 1}
+        expected_evidence_revision: {$ref: '#/components/schemas/Revision'}
+        supersedes_commitment_id: {$ref: '#/components/schemas/NullableId'}
+    FindingReviewRequest:
+      type: object
+      additionalProperties: false
+      required: [decision, reason, evidence, expected_finding_version, expected_evidence_revision]
+      properties:
+        decision:
+          type: string
+          enum: [dismiss, resolve]
+        reason: {type: string, minLength: 1, maxLength: 3000}
+        evidence:
+          type: array
+          maxItems: 20
+          items: {$ref: '#/components/schemas/EvidenceSpan'}
+        expected_finding_version: {type: integer, minimum: 1}
+        expected_evidence_revision: {$ref: '#/components/schemas/Revision'}
+    AuditEvent:
+      type: object
+      additionalProperties: false
+      required: [id, project_id, actor_id, occurred_at, event_type, target_id, summary, evidence_revision, board_revision,
+        payload_hash]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        project_id: {$ref: '#/components/schemas/Id'}
+        actor_id: {$ref: '#/components/schemas/Id'}
+        occurred_at: {type: string, format: date-time}
+        event_type: {type: string, minLength: 1, maxLength: 100}
+        target_id: {$ref: '#/components/schemas/Id'}
+        summary: {type: string, maxLength: 1000}
+        evidence_revision: {$ref: '#/components/schemas/Revision'}
+        board_revision: {$ref: '#/components/schemas/Revision'}
+        payload_hash:
+          anyOf:
+          - {$ref: '#/components/schemas/Hash'}
+          - {type: 'null'}
+    Workspace:
+      type: object
+      additionalProperties: false
+      required: [project, actor_role, users, memberships, sources, commitments, findings, action_proposals, tasks,
+        analysis_runs, audit_events]
+      properties:
+        project: {$ref: '#/components/schemas/Project'}
+        actor_role: {$ref: '#/components/schemas/Role'}
+        users:
+          type: array
+          items: {$ref: '#/components/schemas/User'}
+        memberships:
+          type: array
+          items: {$ref: '#/components/schemas/Membership'}
+        sources:
+          type: array
+          maxItems: 100
+          items: {$ref: '#/components/schemas/SourceMetadata'}
+        commitments:
+          type: array
+          items: {$ref: '#/components/schemas/Commitment'}
+        findings:
+          type: array
+          maxItems: 500
+          items: {$ref: '#/components/schemas/Finding'}
+        action_proposals:
+          type: array
+          items: {$ref: '#/components/schemas/ActionProposal'}
+        tasks:
+          type: array
+          maxItems: 500
+          items: {$ref: '#/components/schemas/Task'}
+        analysis_runs:
+          type: array
+          description: Recent run summaries; bodies retained on per-run endpoint
+          items: {$ref: '#/components/schemas/AnalysisRun'}
+        audit_events:
+          type: array
+          items: {$ref: '#/components/schemas/AuditEvent'}
+    PageSpan:
+      type: object
+      additionalProperties: false
+      required: [page_number, start_char, end_char]
+      properties:
+        page_number: {type: integer, minimum: 1, maximum: 15}
+        start_char: {type: integer, minimum: 0}
+        end_char: {type: integer, minimum: 0}
+      description: Canonical Unicode code-point page range; start <= end. Empty pages may have an empty range; evidence
+        itself must be nonempty.
+    JobDispatchRequest:
+      type: object
+      additionalProperties: false
+      required: [dispatch_generation]
+      properties:
+        dispatch_generation: {type: integer, minimum: 1}
+    JobDispatchResult:
+      type: object
+      additionalProperties: false
+      required: [job_id, outcome]
+      properties:
+        job_id: {$ref: '#/components/schemas/Id'}
+        outcome:
+          type: string
+          enum: [completed, already_terminal, ignored_outdated, failed, stale]
+    RecoveryRequest: {type: object, additionalProperties: false, maxProperties: 0}
+    RecoveryResult:
+      type: object
+      additionalProperties: false
+      required: [enqueued, expired_jobs, failed_jobs]
+      properties:
+        enqueued: {type: integer, minimum: 0}
+        expired_jobs: {type: integer, minimum: 0}
+        failed_jobs: {type: integer, minimum: 0}
+    SourceRetryRequest:
+      type: object
+      additionalProperties: false
+      required: [expected_evidence_revision]
+      properties:
+        expected_evidence_revision: {$ref: '#/components/schemas/Revision'}
+    SourceWithdrawRequest:
+      type: object
+      additionalProperties: false
+      required: [reason, expected_evidence_revision]
+      properties:
+        reason: {type: string, minLength: 1, maxLength: 3000}
+        expected_evidence_revision: {$ref: '#/components/schemas/Revision'}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_06",
+  "project_id": "prj_fir_hub",
+  "expected_outcome": "no_findings",
+  "evidence_sufficiency": "sufficient",
+  "expected_findings": [],
+  "expected_active_baseline_source_version_ids": [
+    "sv_fir_scope_002"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [],
+  "must_not_claim": [
+    "Do not flag the original superseded SSO launch requirement as current.",
+    "Do not apply the 10 November replacement at the 22 October evaluation time."
+  ],
+  "expected_events": []
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_11",
+  "project_id": "prj_larch_task",
+  "expected_outcome": "findings",
+  "evidence_sufficiency": "sufficient",
+  "expected_findings": [
+    {
+      "id": "fnd_larch_dependency",
+      "kind": "dependency_conflict",
+      "status": "open",
+      "summary": "The planned credential delivery is after go-live.",
+      "commitment_descriptions": [
+        "Credentials are a prerequisite for launch."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_larch_plan_001",
+          "start_char": 211,
+          "end_char": 255,
+          "quote": "SSO go-live is 26 October 2026 at 09:00 UTC."
+        },
+        {
+          "source_version_id": "sv_larch_plan_001",
+          "start_char": 256,
+          "end_char": 316,
+          "quote": "Customer tenant credentials must be received before go-live."
+        },
+        {
+          "source_version_id": "sv_larch_dates_001",
+          "start_char": 200,
+          "end_char": 277,
+          "quote": "The customer tenant credentials are planned for 28 October 2026 at 12:00 UTC."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_larch_plan_001",
+          "path": "fixtures/inputs/sources/prj_larch_task/sv_larch_plan_001.md",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "source_version_id": "sv_larch_plan_001",
+          "path": "fixtures/inputs/sources/prj_larch_task/sv_larch_plan_001.md",
+          "line_start": 10,
+          "line_end": 10
+        },
+        {
+          "source_version_id": "sv_larch_dates_001",
+          "path": "fixtures/inputs/sources/prj_larch_task/sv_larch_dates_001.md",
+          "line_start": 9,
+          "line_end": 9
+        }
+      ],
+      "must_not_claim": []
+    }
+  ],
+  "expected_active_baseline_source_version_ids": [
+    "sv_larch_plan_001"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [],
+  "must_not_claim": [],
+  "expected_events": [
+    {
+      "event_id": "evt_larch_initial_analysis",
+      "expected_result": "one_finding",
+      "expected_board_revision": 7,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 0
+    },
+    {
+      "event_id": "evt_larch_duplicate_import",
+      "expected_result": "no_op",
+      "expected_board_revision": 7,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 0
+    },
+    {
+      "event_id": "evt_larch_propose",
+      "expected_result": "proposal_only",
+      "expected_board_revision": 7,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 0
+    },
+    {
+      "event_id": "evt_larch_viewer",
+      "expected_result": "forbidden",
+      "http_status": 403,
+      "expected_board_revision": 7,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 0
+    },
+    {
+      "event_id": "evt_larch_approve",
+      "expected_result": "approved_only",
+      "expected_board_revision": 7,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 0
+    },
+    {
+      "event_id": "evt_larch_execute",
+      "expected_result": "one_task_created",
+      "expected_board_revision": 8,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 1,
+      "expected_task_id": "tsk_larch_credentials",
+      "expected_task_status": "open"
+    },
+    {
+      "event_id": "evt_larch_duplicate_execute",
+      "expected_result": "same_task_returned",
+      "expected_board_revision": 8,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 1,
+      "expected_task_id": "tsk_larch_credentials"
+    },
+    {
+      "event_id": "evt_larch_new_key_replay",
+      "expected_result": "same_task_returned",
+      "expected_board_revision": 8,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 1,
+      "expected_task_id": "tsk_larch_credentials"
+    },
+    {
+      "event_id": "evt_larch_stale_board",
+      "expected_result": "conflict",
+      "http_status": 409,
+      "expected_board_revision": 8,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 1
+    },
+    {
+      "event_id": "evt_larch_stale_evidence",
+      "expected_result": "conflict",
+      "http_status": 409,
+      "expected_board_revision": 8,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 1
+    },
+    {
+      "event_id": "evt_larch_mutated_source",
+      "expected_result": "conflict",
+      "http_status": 409,
+      "expected_board_revision": 8,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 1
+    }
+  ]
+}

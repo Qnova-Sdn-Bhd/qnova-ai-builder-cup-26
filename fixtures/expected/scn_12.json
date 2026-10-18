@@ -1,0 +1,450 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_12",
+  "project_id": "prj_harbour_portal",
+  "expected_outcome": "findings",
+  "evidence_sufficiency": "sufficient",
+  "expected_findings": [
+    {
+      "id": "fnd_hp_scope",
+      "kind": "scope_mismatch",
+      "status": "open",
+      "summary": "The presales SSO launch promise conflicts with the accepted phase-two baseline; its authority needs a reviewer decision.",
+      "commitment_descriptions": [
+        "SSO in phase two under the accepted baseline.",
+        "SSO at launch in a proposed presales commitment."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_hp_sow_001",
+          "start_char": 266,
+          "end_char": 380,
+          "quote": "Launch scope is password-based staff login; Microsoft Entra ID SSO is scheduled for phase two on 16 November 2026."
+        },
+        {
+          "source_version_id": "sv_hp_presales_001",
+          "start_char": 306,
+          "end_char": 382,
+          "quote": "We have promised your staff Microsoft Entra ID SSO at the 26 October launch."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_hp_sow_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_sow_001.md",
+          "line_start": 11,
+          "line_end": 11
+        },
+        {
+          "source_version_id": "sv_hp_presales_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_presales_001.md",
+          "line_start": 12,
+          "line_end": 12
+        }
+      ],
+      "must_not_claim": [
+        "Do not treat the presales email as an accepted scope change."
+      ]
+    },
+    {
+      "id": "fnd_hp_acceptance",
+      "kind": "acceptance_gap",
+      "status": "open",
+      "summary": "The board marks overall login readiness complete, but password evidence does not establish SSO acceptance for the proposed launch promise.",
+      "commitment_descriptions": [
+        "SSO at launch in a proposed presales commitment."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_hp_presales_001",
+          "start_char": 306,
+          "end_char": 382,
+          "quote": "We have promised your staff Microsoft Entra ID SSO at the 26 October launch."
+        },
+        {
+          "source_version_id": "sv_hp_checklist_001",
+          "start_char": 257,
+          "end_char": 309,
+          "quote": "LOGIN-01: Overall launch login readiness — Complete."
+        },
+        {
+          "source_version_id": "sv_hp_checklist_001",
+          "start_char": 310,
+          "end_char": 373,
+          "quote": "Evidence recorded: password login passed on the staging portal."
+        },
+        {
+          "source_version_id": "sv_hp_checklist_001",
+          "start_char": 374,
+          "end_char": 445,
+          "quote": "No Entra ID SSO test run or customer SSO acceptance record is attached."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_hp_presales_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_presales_001.md",
+          "line_start": 12,
+          "line_end": 12
+        },
+        {
+          "source_version_id": "sv_hp_checklist_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_checklist_001.md",
+          "line_start": 10,
+          "line_end": 10
+        },
+        {
+          "source_version_id": "sv_hp_checklist_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_checklist_001.md",
+          "line_start": 11,
+          "line_end": 11
+        },
+        {
+          "source_version_id": "sv_hp_checklist_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_checklist_001.md",
+          "line_start": 12,
+          "line_end": 12
+        }
+      ],
+      "must_not_claim": [
+        "Do not call this a breach of the accepted phase-two scope.",
+        "Missing evidence does not prove that SSO implementation failed."
+      ]
+    },
+    {
+      "id": "fnd_hp_dependency",
+      "kind": "dependency_conflict",
+      "status": "open",
+      "summary": "If the proposed SSO launch promise is adopted, its credentials and security approval arrive after go-live.",
+      "commitment_descriptions": [
+        "SSO launch depends on customer tenant credentials and security approval."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_hp_presales_001",
+          "start_char": 306,
+          "end_char": 382,
+          "quote": "We have promised your staff Microsoft Entra ID SSO at the 26 October launch."
+        },
+        {
+          "source_version_id": "sv_hp_readiness_001",
+          "start_char": 249,
+          "end_char": 303,
+          "quote": "Go-live is scheduled for 26 October 2026 at 09:00 UTC."
+        },
+        {
+          "source_version_id": "sv_hp_readiness_001",
+          "start_char": 304,
+          "end_char": 400,
+          "quote": "For SSO at launch, the customer tenant credentials and security approval are both prerequisites."
+        },
+        {
+          "source_version_id": "sv_hp_readiness_001",
+          "start_char": 401,
+          "end_char": 520,
+          "quote": "Customer tenant credentials are planned for 28 October 2026; customer security approval is planned for 29 October 2026."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_hp_presales_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_presales_001.md",
+          "line_start": 12,
+          "line_end": 12
+        },
+        {
+          "source_version_id": "sv_hp_readiness_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_readiness_001.md",
+          "line_start": 10,
+          "line_end": 10
+        },
+        {
+          "source_version_id": "sv_hp_readiness_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_readiness_001.md",
+          "line_start": 11,
+          "line_end": 11
+        },
+        {
+          "source_version_id": "sv_hp_readiness_001",
+          "path": "fixtures/inputs/sources/prj_harbour_portal/sv_hp_readiness_001.md",
+          "line_start": 12,
+          "line_end": 12
+        }
+      ],
+      "must_not_claim": [
+        "Keep the dependency warning conditional on adopting the proposed SSO-at-launch promise."
+      ]
+    }
+  ],
+  "expected_active_baseline_source_version_ids": [
+    "sv_hp_sow_001"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [],
+  "must_not_claim": [
+    "The launch promise is proposed until an authorized reviewer adopts it.",
+    "Approved execution creates a board task; approval alone changes no board and neither step proves implementation or acceptance.",
+    "Use event-specific source sets; never include future acceptance evidence in the initial analysis."
+  ],
+  "expected_events": [
+    {
+      "event_id": "evt_hp_initial_analysis",
+      "expected_result": "three_findings",
+      "expected_board_revision": 1,
+      "expected_evidence_revision": 1,
+      "expected_task_count": 0,
+      "expected_active_baseline_source_version_ids": [
+        "sv_hp_sow_001"
+      ],
+      "expected_open_finding_ids": [
+        "fnd_hp_scope",
+        "fnd_hp_acceptance",
+        "fnd_hp_dependency"
+      ]
+    },
+    {
+      "event_id": "evt_hp_accept_phase2",
+      "expected_result": "phase2_commitment_accepted",
+      "expected_board_revision": 1,
+      "expected_evidence_revision": 2,
+      "expected_task_count": 0,
+      "expected_commitment_statuses": {
+        "cmt_hp_sso_phase2": "accepted",
+        "cmt_hp_sso_launch": "proposed"
+      }
+    },
+    {
+      "event_id": "evt_hp_reanalyse",
+      "expected_result": "fresh_analysis",
+      "expected_board_revision": 1,
+      "expected_evidence_revision": 2,
+      "expected_task_count": 0
+    },
+    {
+      "event_id": "evt_hp_propose",
+      "expected_result": "proposal_only",
+      "expected_board_revision": 1,
+      "expected_evidence_revision": 2,
+      "expected_task_count": 0
+    },
+    {
+      "event_id": "evt_hp_approve",
+      "expected_result": "approved_only",
+      "expected_board_revision": 1,
+      "expected_evidence_revision": 2,
+      "expected_task_count": 0
+    },
+    {
+      "event_id": "evt_hp_execute",
+      "expected_result": "one_task_created",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 2,
+      "expected_task_count": 1,
+      "expected_task_id": "tsk_hp_sso_readiness",
+      "expected_task_status": "open",
+      "expected_task_version": 1,
+      "expected_open_finding_ids": [
+        "fnd_hp_scope",
+        "fnd_hp_acceptance",
+        "fnd_hp_dependency"
+      ]
+    },
+    {
+      "event_id": "evt_hp_import_amendment",
+      "expected_result": "unreviewed_source_added",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 3,
+      "expected_task_count": 1,
+      "expected_active_baseline_source_version_ids": [
+        "sv_hp_sow_001"
+      ]
+    },
+    {
+      "event_id": "evt_hp_review_amendment",
+      "expected_result": "baseline_authority_confirmed",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 4,
+      "expected_task_count": 1,
+      "expected_active_baseline_source_version_ids": [
+        "sv_hp_sow_002"
+      ]
+    },
+    {
+      "event_id": "evt_hp_analyze_amendment",
+      "expected_result": "replacement_candidate_available",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 4,
+      "expected_task_count": 1
+    },
+    {
+      "event_id": "evt_hp_accept_launch",
+      "expected_result": "launch_accepted_and_phase2_superseded",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 5,
+      "expected_task_count": 1,
+      "expected_commitment_statuses": {
+        "cmt_hp_sso_phase2": "superseded",
+        "cmt_hp_sso_launch": "accepted"
+      },
+      "eligible_for_resolution_finding_ids": [
+        "fnd_hp_scope"
+      ]
+    },
+    {
+      "event_id": "evt_hp_import_readiness",
+      "expected_result": "unreviewed_source_added",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 6,
+      "expected_task_count": 1
+    },
+    {
+      "event_id": "evt_hp_review_readiness",
+      "expected_result": "readiness_evidence_reviewed",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 7,
+      "expected_task_count": 1,
+      "eligible_for_resolution_finding_ids": [
+        "fnd_hp_scope",
+        "fnd_hp_dependency"
+      ]
+    },
+    {
+      "event_id": "evt_hp_import_uat",
+      "expected_result": "unreviewed_source_added",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 8,
+      "expected_task_count": 1
+    },
+    {
+      "event_id": "evt_hp_review_uat",
+      "expected_result": "acceptance_evidence_reviewed",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 9,
+      "expected_task_count": 1,
+      "eligible_for_resolution_finding_ids": [
+        "fnd_hp_scope",
+        "fnd_hp_acceptance",
+        "fnd_hp_dependency"
+      ]
+    },
+    {
+      "event_id": "evt_hp_analyze_acceptance",
+      "expected_result": "no_new_findings_human_dispositions_pending",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 9,
+      "expected_task_count": 1,
+      "expected_open_finding_ids": [
+        "fnd_hp_scope",
+        "fnd_hp_acceptance",
+        "fnd_hp_dependency"
+      ]
+    },
+    {
+      "event_id": "evt_hp_close_launch",
+      "expected_result": "launch_commitment_closed",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 10,
+      "expected_task_count": 1,
+      "expected_commitment_statuses": {
+        "cmt_hp_sso_phase2": "superseded",
+        "cmt_hp_sso_launch": "closed"
+      },
+      "expected_task_status": "open",
+      "expected_task_version": 1
+    },
+    {
+      "event_id": "evt_hp_resolve_scope",
+      "expected_result": "finding_resolved",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 10,
+      "expected_task_count": 1,
+      "expected_open_finding_ids": [
+        "fnd_hp_acceptance",
+        "fnd_hp_dependency"
+      ],
+      "expected_resolved_finding_ids": [
+        "fnd_hp_scope"
+      ],
+      "required_resolution_evidence": [
+        {
+          "source_version_id": "sv_hp_sow_002",
+          "start_char": 388,
+          "end_char": 494,
+          "quote": "Launch on 26 October 2026 includes Microsoft Entra ID SSO; the earlier phase-two SSO schedule is replaced."
+        },
+        {
+          "source_version_id": "sv_hp_sow_002",
+          "start_char": 495,
+          "end_char": 635,
+          "quote": "Acceptance requires UAT-HP-SSO-01: customer-tenant SAML sign-in, logout and second sign-in, plus the project reviewer's explicit acceptance."
+        }
+      ],
+      "expected_task_id": "tsk_hp_sso_readiness",
+      "expected_task_status": "open",
+      "expected_task_version": 1
+    },
+    {
+      "event_id": "evt_hp_resolve_dependency",
+      "expected_result": "finding_resolved",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 10,
+      "expected_task_count": 1,
+      "expected_open_finding_ids": [
+        "fnd_hp_acceptance"
+      ],
+      "expected_resolved_finding_ids": [
+        "fnd_hp_scope",
+        "fnd_hp_dependency"
+      ],
+      "required_resolution_evidence": [
+        {
+          "source_version_id": "sv_hp_readiness_002",
+          "start_char": 312,
+          "end_char": 386,
+          "quote": "Customer tenant credentials were received on 23 October 2026 at 10:00 UTC."
+        },
+        {
+          "source_version_id": "sv_hp_readiness_002",
+          "start_char": 387,
+          "end_char": 459,
+          "quote": "Customer security approval was recorded on 23 October 2026 at 11:00 UTC."
+        }
+      ],
+      "expected_task_id": "tsk_hp_sso_readiness",
+      "expected_task_status": "open",
+      "expected_task_version": 1
+    },
+    {
+      "event_id": "evt_hp_resolve_acceptance",
+      "expected_result": "finding_resolved",
+      "expected_board_revision": 2,
+      "expected_evidence_revision": 10,
+      "expected_task_count": 1,
+      "expected_open_finding_ids": [],
+      "expected_resolved_finding_ids": [
+        "fnd_hp_scope",
+        "fnd_hp_dependency",
+        "fnd_hp_acceptance"
+      ],
+      "required_resolution_evidence": [
+        {
+          "source_version_id": "sv_hp_acceptance_001",
+          "start_char": 370,
+          "end_char": 445,
+          "quote": "Result: customer-tenant SAML sign-in, logout and second sign-in all passed."
+        },
+        {
+          "source_version_id": "sv_hp_acceptance_001",
+          "start_char": 446,
+          "end_char": 582,
+          "quote": "Reviewer acceptance: reviewer@harbour.test reviewed UAT-HP-SSO-01 and accepted the SSO launch criterion on 24 October 2026 at 10:30 UTC."
+        }
+      ],
+      "expected_task_id": "tsk_hp_sso_readiness",
+      "expected_task_status": "open",
+      "expected_task_version": 1
+    }
+  ]
+}

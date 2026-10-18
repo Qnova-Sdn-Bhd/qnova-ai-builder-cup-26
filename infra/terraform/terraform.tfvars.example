@@ -1,0 +1,20 @@
+# Copy to an ignored .tfvars after selecting the real authorized project/locations.
+project_id                       = "replace-with-authorized-project"
+region                           = "us-central1"
+document_ai_location             = "us"
+document_ai_processor_version    = "REPLACE_VERIFIED_ENABLED_OCR_VERSION"
+existing_document_ai_processor_id = ""
+gemini_model                     = "REPLACE_VERIFIED_AVAILABLE_GEMINI_MODEL"
+gemini_location                  = "us"
+operator_members                 = []
+notification_channels            = []
+# Core resources first. Enable only after real resources and immutable images exist.
+deploy_services                  = false
+agent_engine_resource_name       = ""
+api_image                        = ""
+web_image                        = ""
+firebase_public_api_key          = ""
+firebase_public_app_id           = ""
+# Alerts are optional until actual authorized billing account/currency are supplied.
+billing_account_id               = ""
+budget_amount                    = 0

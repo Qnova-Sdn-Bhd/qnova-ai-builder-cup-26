@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_04",
+  "project_id": "prj_delta_console",
+  "expected_outcome": "no_findings",
+  "evidence_sufficiency": "sufficient",
+  "expected_findings": [],
+  "expected_active_baseline_source_version_ids": [
+    "sv_delta_scope_001"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [],
+  "must_not_claim": [
+    "Do not flag Azure AD versus Microsoft Entra ID wording as a scope mismatch; this fixture explicitly equates them.",
+    "A clean result does not mean every possible enterprise risk was evaluated."
+  ],
+  "expected_events": []
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "provider_mode": "mock",
+  "canned": true,
+  "live_accuracy_evidence": false,
+  "scenario_id": "scn_11",
+  "snapshot_key": "initial",
+  "supported_snapshot": {
+    "project_id": "prj_larch_task",
+    "evidence_revision": 3,
+    "evaluation_as_of": "2026-10-22T12:00:00Z",
+    "source_versions": [
+      {
+        "id": "sv_larch_dates_001",
+        "canonical_text_sha256": "f7c9fcc4bc62cfa912b5bdb9aa9612c46b368b8eda3bddb5c783f7ec5e7eb050",
+        "authority": "context",
+        "effective_at": null
+      },
+      {
+        "id": "sv_larch_plan_001",
+        "canonical_text_sha256": "ac058e722ff500933566dd587fafd9228edffebc559d78b460e26ab29b25357c",
+        "authority": "accepted_baseline",
+        "effective_at": "2026-10-20T09:00:00Z"
+      }
+    ],
+    "commitment_statuses": {}
+  },
+  "snapshot_fingerprint_sha256": "5780aa08ecf26ed0ed4dae6125287e6225983a0131ad112db17cfefb28d45189",
+  "notice": "CANNED DEMONSTRATION RESPONSE. This exercises UI flow only and is never a live-model accuracy result.",
+  "response": {
+    "proposed_commitments": [
+      {
+        "id": "cmt_larch_credentials",
+        "description": "Customer tenant credentials must be received before the 26 October SSO go-live.",
+        "acceptance_criteria": [],
+        "owner_id": null,
+        "due_date": "2026-10-26",
+        "evidence": [
+          {
+            "source_version_id": "sv_larch_plan_001",
+            "start_char": 256,
+            "end_char": 316,
+            "quote": "Customer tenant credentials must be received before go-live."
+          }
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "id": "fnd_larch_dependency",
+        "kind": "dependency_conflict",
+        "title": "Credential delivery is after go-live",
+        "explanation": "The planned credential delivery is after go-live.",
+        "commitment_ids": [
+          "cmt_larch_credentials"
+        ],
+        "evidence": [
+          {
+            "source_version_id": "sv_larch_plan_001",
+            "start_char": 211,
+            "end_char": 255,
+            "quote": "SSO go-live is 26 October 2026 at 09:00 UTC."
+          },
+          {
+            "source_version_id": "sv_larch_plan_001",
+            "start_char": 256,
+            "end_char": 316,
+            "quote": "Customer tenant credentials must be received before go-live."
+          },
+          {
+            "source_version_id": "sv_larch_dates_001",
+            "start_char": 200,
+            "end_char": 277,
+            "quote": "The customer tenant credentials are planned for 28 October 2026 at 12:00 UTC."
+          }
+        ]
+      }
+    ],
+    "coverage_warnings": []
+  }
+}

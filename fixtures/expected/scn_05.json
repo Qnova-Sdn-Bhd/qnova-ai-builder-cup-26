@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_05",
+  "project_id": "prj_elm_service",
+  "expected_outcome": "findings",
+  "evidence_sufficiency": "sufficient",
+  "expected_findings": [
+    {
+      "id": "fnd_elm_scope",
+      "kind": "scope_mismatch",
+      "status": "open",
+      "summary": "An unsigned proposal would remove SSO from launch, but the accepted launch baseline remains in force.",
+      "commitment_descriptions": [
+        "SSO remains required at launch until a reviewer accepts a change."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_elm_scope_001",
+          "start_char": 202,
+          "end_char": 270,
+          "quote": "The accepted 26 October 2026 launch includes Microsoft Entra ID SSO."
+        },
+        {
+          "source_version_id": "sv_elm_scope_002",
+          "start_char": 214,
+          "end_char": 258,
+          "quote": "PROPOSED AMENDMENT — not signed or accepted."
+        },
+        {
+          "source_version_id": "sv_elm_scope_002",
+          "start_char": 259,
+          "end_char": 348,
+          "quote": "Move Microsoft Entra ID SSO to phase two on 16 November 2026; launch with password login."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_elm_scope_001",
+          "path": "fixtures/inputs/sources/prj_elm_service/sv_elm_scope_001.md",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "source_version_id": "sv_elm_scope_002",
+          "path": "fixtures/inputs/sources/prj_elm_service/sv_elm_scope_002.md",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "source_version_id": "sv_elm_scope_002",
+          "path": "fixtures/inputs/sources/prj_elm_service/sv_elm_scope_002.md",
+          "line_start": 10,
+          "line_end": 10
+        }
+      ],
+      "must_not_claim": [
+        "Do not automatically supersede the signed baseline."
+      ]
+    }
+  ],
+  "expected_active_baseline_source_version_ids": [
+    "sv_elm_scope_001"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [],
+  "must_not_claim": [],
+  "expected_events": []
+}

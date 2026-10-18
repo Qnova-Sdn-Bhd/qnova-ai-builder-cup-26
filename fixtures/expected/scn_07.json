@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_07",
+  "project_id": "prj_grove_case",
+  "expected_outcome": "findings",
+  "evidence_sufficiency": "insufficient",
+  "expected_findings": [
+    {
+      "id": "fnd_grove_acceptance",
+      "kind": "acceptance_gap",
+      "status": "open",
+      "summary": "The completion claim lacks the required acceptance artifacts; actual SSO functionality remains unknown.",
+      "commitment_descriptions": [
+        "Retain the specified SSO UAT result and reviewer acceptance."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_grove_scope_001",
+          "start_char": 215,
+          "end_char": 361,
+          "quote": "SSO acceptance requires UAT-SSO-01: a customer-tenant sign-in, a logout and a second sign-in, with the test result and reviewer approval retained."
+        },
+        {
+          "source_version_id": "sv_grove_note_001",
+          "start_char": 201,
+          "end_char": 238,
+          "quote": "The implementer reports SSO Complete."
+        },
+        {
+          "source_version_id": "sv_grove_note_001",
+          "start_char": 239,
+          "end_char": 321,
+          "quote": "The evidence pack contains no UAT-SSO-01 result and no reviewer acceptance record."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_grove_scope_001",
+          "path": "fixtures/inputs/sources/prj_grove_case/sv_grove_scope_001.md",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "source_version_id": "sv_grove_note_001",
+          "path": "fixtures/inputs/sources/prj_grove_case/sv_grove_note_001.md",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "source_version_id": "sv_grove_note_001",
+          "path": "fixtures/inputs/sources/prj_grove_case/sv_grove_note_001.md",
+          "line_start": 10,
+          "line_end": 10
+        }
+      ],
+      "must_not_claim": [
+        "Do not say SSO failed or was never built."
+      ]
+    }
+  ],
+  "expected_active_baseline_source_version_ids": [
+    "sv_grove_scope_001"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [
+    "Where is the UAT-SSO-01 result and authorized acceptance record?"
+  ],
+  "must_not_claim": [],
+  "expected_events": []
+}

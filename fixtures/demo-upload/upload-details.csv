@@ -1,0 +1,5 @@
+file,document_id,title,source_kind,created_at,effective_at
+01-harbour-scope.pdf,doc_hp_sow,Signed scope baseline v1,sow,2026-10-20T09:00:00Z,2026-10-20T09:00:00Z
+02-launch-email.md,doc_hp_presales,Presales launch email,email,2026-10-20T09:00:00Z,
+03-readiness-checklist.md,doc_hp_checklist,Launch-readiness checklist,acceptance_checklist,2026-10-20T09:00:00Z,
+04-dependency-plan.md,doc_hp_readiness,Launch dependency plan,project_export,2026-10-20T09:00:00Z,

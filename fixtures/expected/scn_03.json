@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_03",
+  "project_id": "prj_cedar_access",
+  "expected_outcome": "findings",
+  "evidence_sufficiency": "sufficient",
+  "expected_findings": [
+    {
+      "id": "fnd_cedar_dependency",
+      "kind": "dependency_conflict",
+      "status": "open",
+      "summary": "Required credentials and approval are planned after the accepted go-live.",
+      "commitment_descriptions": [
+        "Credentials and approval must precede SSO go-live."
+      ],
+      "required_evidence": [
+        {
+          "source_version_id": "sv_cedar_plan_001",
+          "start_char": 204,
+          "end_char": 266,
+          "quote": "SSO must be ready for go-live on 26 October 2026 at 09:00 UTC."
+        },
+        {
+          "source_version_id": "sv_cedar_plan_001",
+          "start_char": 267,
+          "end_char": 350,
+          "quote": "Tenant credentials and customer security approval are mandatory before SSO go-live."
+        },
+        {
+          "source_version_id": "sv_cedar_dates_001",
+          "start_char": 210,
+          "end_char": 341,
+          "quote": "The customer will provide tenant credentials on 28 October 2026 at 12:00 UTC and security approval on 29 October 2026 at 12:00 UTC."
+        }
+      ],
+      "fixture_locators": [
+        {
+          "source_version_id": "sv_cedar_plan_001",
+          "path": "fixtures/inputs/sources/prj_cedar_access/sv_cedar_plan_001.md",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "source_version_id": "sv_cedar_plan_001",
+          "path": "fixtures/inputs/sources/prj_cedar_access/sv_cedar_plan_001.md",
+          "line_start": 10,
+          "line_end": 10
+        },
+        {
+          "source_version_id": "sv_cedar_dates_001",
+          "path": "fixtures/inputs/sources/prj_cedar_access/sv_cedar_dates_001.md",
+          "line_start": 9,
+          "line_end": 9
+        }
+      ],
+      "must_not_claim": []
+    }
+  ],
+  "expected_active_baseline_source_version_ids": [
+    "sv_cedar_plan_001"
+  ],
+  "forbidden_source_version_ids": [],
+  "review_questions": [],
+  "must_not_claim": [],
+  "expected_events": []
+}

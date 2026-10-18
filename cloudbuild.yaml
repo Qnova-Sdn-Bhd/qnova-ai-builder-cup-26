@@ -1,0 +1,133 @@
+# Submit explicitly with the dedicated hg-build identity. Default: tests/build only.
+# Initial service creation and all IAM/configuration are owned by Terraform.
+# After first deployment, _DEPLOY=true rolls out images to the existing services.
+timeout: 1800s
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8
+  substitutionOption: MUST_MATCH
+serviceAccount: projects/$PROJECT_ID/serviceAccounts/hg-build@$PROJECT_ID.iam.gserviceaccount.com
+substitutions:
+  _REGION: ''
+  _REPOSITORY: handoff-guardian
+  _DEPLOY: 'false'
+  _DEPLOY_AGENT: 'false'
+  _AGENT_RESOURCE: ''
+  _GEMINI_MODEL: ''
+  _GEMINI_LOCATION: 'us'
+  _AGENT_STAGING_BUCKET: ''
+steps:
+  - id: python-checks
+    name: python:3.12.15-slim-trixie
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        pip install --no-cache-dir uv==0.13.1
+        apt-get update
+        apt-get install --yes --no-install-recommends openjdk-21-jre-headless curl
+        curl --fail --silent --show-error --location https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.22.0.jar --output /tmp/firestore.jar
+        echo '9b6498b7f62714d67f48f59b3818883cd682dbcd46b9f59511de81c97bb5166c  /tmp/firestore.jar' | sha256sum --check --status
+        java -jar /tmp/firestore.jar --host 127.0.0.1 --port 8089 --project_id hg-offline-tests > /tmp/firestore-emulator.log 2>&1 &
+        EMULATOR_PID=$$!
+        trap 'kill "$$EMULATOR_PID" 2>/dev/null || true' EXIT
+        python -c 'import socket,time; deadline=time.monotonic()+45; ready=False
+        while time.monotonic()<deadline:
+          try:
+            socket.create_connection(("127.0.0.1",8089),timeout=1).close(); ready=True; break
+          except OSError: time.sleep(1)
+        assert ready, "Firestore emulator startup failed"'
+        uv --directory backend sync --frozen
+        uv --directory backend run ruff check .
+        FIRESTORE_EMULATOR_HOST=127.0.0.1:8089 uv --directory backend run pytest
+        uv --directory backend run pytest ../infra/tests
+        uv --directory agent sync --frozen
+        uv --directory agent run ruff check .
+        uv --directory agent run pytest
+        uv --directory backend run python ../scripts/validate_fixtures.py
+        uv --directory backend run python ../scripts/validate_cloud_pack.py
+        uv --directory backend run ruff check --config pyproject.toml ../infra/tests ../scripts/bootstrap_reviewer.py ../scripts/seed_demo.py ../scripts/run_cloud_acceptance.py
+  - id: frontend-checks
+    waitFor: ['-']
+    name: node:24-bookworm-slim
+    entrypoint: bash
+    env: ['CI=true', 'NEXT_TELEMETRY_DISABLED=1']
+    args:
+      - -ceu
+      - |
+        npm --prefix frontend ci --no-audit --no-fund
+        npm --prefix frontend run lint
+        npm --prefix frontend run typecheck
+        npm --prefix frontend run test
+        npm --prefix frontend run build
+        cd frontend
+        npx --no-install playwright install --with-deps chromium
+        npm run test:e2e
+  - id: backend-image
+    waitFor: [python-checks]
+    name: gcr.io/cloud-builders/docker
+    args: [build, --pull, --tag, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$BUILD_ID', backend]
+  - id: frontend-image
+    waitFor: [frontend-checks]
+    name: gcr.io/cloud-builders/docker
+    args: [build, --pull, --tag, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/web:$BUILD_ID', frontend]
+  - id: push-api
+    waitFor: [backend-image]
+    name: gcr.io/cloud-builders/docker
+    args: [push, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$BUILD_ID']
+  - id: push-web
+    waitFor: [frontend-image]
+    name: gcr.io/cloud-builders/docker
+    args: [push, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/web:$BUILD_ID']
+  - id: deploy-agent
+    waitFor: [python-checks, push-api, push-web]
+    name: python:3.12.15-slim
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        if [ '${_DEPLOY_AGENT}' != 'true' ]; then
+          echo 'Agent deployment not requested; no Agent Engine mutation performed.'
+          exit 0
+        fi
+        test -n '${_REGION}'
+        test -n '${_GEMINI_MODEL}'
+        test -n '${_AGENT_STAGING_BUCKET}'
+        pip install --no-cache-dir uv==0.13.1
+        if [ -n '${_AGENT_RESOURCE}' ]; then
+          uv --directory agent run --frozen python ../scripts/deploy_agent.py --project '$PROJECT_ID' --location '${_REGION}' --model '${_GEMINI_MODEL}' --model-location '${_GEMINI_LOCATION}' --staging-bucket '${_AGENT_STAGING_BUCKET}' --service-account 'hg-agent@$PROJECT_ID.iam.gserviceaccount.com' --resource-name '${_AGENT_RESOURCE}' --allow-deploy --output ../artifacts/agent-deployment.json
+        else
+          uv --directory agent run --frozen python ../scripts/deploy_agent.py --project '$PROJECT_ID' --location '${_REGION}' --model '${_GEMINI_MODEL}' --model-location '${_GEMINI_LOCATION}' --staging-bucket '${_AGENT_STAGING_BUCKET}' --service-account 'hg-agent@$PROJECT_ID.iam.gserviceaccount.com' --allow-deploy --output ../artifacts/agent-deployment.json
+        fi
+  - id: record-and-rollout
+    waitFor: [push-api, push-web, deploy-agent]
+    name: gcr.io/google.com/cloudsdktool/google-cloud-cli:589.0.0-slim
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        test -n '${_REGION}'
+        mkdir -p artifacts
+        API_IMAGE='${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api'
+        WEB_IMAGE='${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/web'
+        API_DIGEST=$$(gcloud artifacts docker images describe "$$API_IMAGE:$BUILD_ID" --format='value(image_summary.digest)')
+        WEB_DIGEST=$$(gcloud artifacts docker images describe "$$WEB_IMAGE:$BUILD_ID" --format='value(image_summary.digest)')
+        test -n "$$API_DIGEST"
+        test -n "$$WEB_DIGEST"
+        printf '{"build_id":"%s","project_id":"%s","region":"%s","api_image":"%s@%s","web_image":"%s@%s"}\n' '$BUILD_ID' '$PROJECT_ID' '${_REGION}' "$$API_IMAGE" "$$API_DIGEST" "$$WEB_IMAGE" "$$WEB_DIGEST" > artifacts/images.json
+        cat artifacts/images.json
+        if [ '${_DEPLOY}' != 'true' ]; then
+          echo 'Images built. Initial deployment requires reviewed Terraform configuration and real agent resource.'
+          exit 0
+        fi
+        test -n '${_AGENT_RESOURCE}'
+        test -n '${_GEMINI_MODEL}'
+        gcloud run services describe hg-worker --project='$PROJECT_ID' --region='${_REGION}' --format='value(status.latestReadyRevisionName)'
+        gcloud run services describe hg-api --project='$PROJECT_ID' --region='${_REGION}' --format='value(status.latestReadyRevisionName)'
+        gcloud run services describe hg-web --project='$PROJECT_ID' --region='${_REGION}' --format='value(status.latestReadyRevisionName)'
+        gcloud run services update hg-worker --project='$PROJECT_ID' --region='${_REGION}' --image="$$API_IMAGE@$$API_DIGEST" --quiet
+        gcloud run services update hg-api --project='$PROJECT_ID' --region='${_REGION}' --image="$$API_IMAGE@$$API_DIGEST" --quiet
+        gcloud run services update hg-web --project='$PROJECT_ID' --region='${_REGION}' --image="$$WEB_IMAGE@$$WEB_DIGEST" --quiet
+images:
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$BUILD_ID'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/web:$BUILD_ID'

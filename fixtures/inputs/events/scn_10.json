@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "scenario_id": "scn_10",
+  "events": [
+    {
+      "id": "evt_juniper_cross_project_read",
+      "operation": "attempt_source_read",
+      "actor_id": "usr_juniper_portal_reviewer",
+      "source_version_id": "sv_kestrel_uat_001",
+      "project_id": "prj_juniper_portal"
+    },
+    {
+      "id": "evt_juniper_cross_project_review",
+      "operation": "attempt_cross_project_source_review",
+      "actor_id": "usr_juniper_portal_reviewer",
+      "source_version_id": "sv_kestrel_uat_001",
+      "project_id": "prj_juniper_portal",
+      "authority": "acceptance_evidence"
+    }
+  ]
+}

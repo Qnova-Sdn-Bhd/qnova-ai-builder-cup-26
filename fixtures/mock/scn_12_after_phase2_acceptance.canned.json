@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "provider_mode": "mock",
+  "canned": true,
+  "live_accuracy_evidence": false,
+  "scenario_id": "scn_12",
+  "snapshot_key": "after_phase2_acceptance",
+  "supported_snapshot": {
+    "project_id": "prj_harbour_portal",
+    "evidence_revision": 2,
+    "evaluation_as_of": "2026-10-22T12:10:00Z",
+    "source_versions": [
+      {
+        "id": "sv_hp_checklist_001",
+        "canonical_text_sha256": "a31c0bb53717f45e1b953ab51ae2a93c638d7bf2337320ff2805bb83af60c97b",
+        "authority": "context",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_presales_001",
+        "canonical_text_sha256": "82a2706fb798c6aa31d4b9df3770494ac2c11d1c1034bc1586aa9572ade30c25",
+        "authority": "proposal",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_readiness_001",
+        "canonical_text_sha256": "acfc2c796ae30bfb0a83a4cdf0c00e82095251f99e93ac3234dfba739b821a5e",
+        "authority": "context",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_sow_001",
+        "canonical_text_sha256": "e80ddb09fecc09160a0bd0273a78268f9380c5fa9290107debede579b2793406",
+        "authority": "accepted_baseline",
+        "effective_at": "2026-10-20T09:00:00Z"
+      }
+    ],
+    "commitment_statuses": {
+      "cmt_hp_sso_phase2": "accepted",
+      "cmt_hp_sso_launch": "proposed"
+    }
+  },
+  "snapshot_fingerprint_sha256": "0bc3857adb9c6dbc6cbc995e8baaf6af8ac07dce73fcae7e38d2e23ee4b5f355",
+  "notice": "CANNED DEMONSTRATION RESPONSE. This exercises UI flow only and is never a live-model accuracy result.",
+  "response": {
+    "proposed_commitments": [
+      {
+        "id": "cmt_hp_sso_phase2",
+        "description": "Microsoft Entra ID SSO is in the accepted phase-two scope for 16 November 2026.",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_sow_001",
+            "start_char": 266,
+            "end_char": 380,
+            "quote": "Launch scope is password-based staff login; Microsoft Entra ID SSO is scheduled for phase two on 16 November 2026."
+          }
+        ],
+        "acceptance_criteria": [
+          "Customer-tenant SAML UAT evidence and authorized acceptance."
+        ],
+        "owner_id": null,
+        "due_date": "2026-11-16"
+      },
+      {
+        "id": "cmt_hp_sso_launch",
+        "description": "Presales promised Microsoft Entra ID SSO at the 26 October launch; this is not an accepted scope change.",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_presales_001",
+            "start_char": 306,
+            "end_char": 382,
+            "quote": "We have promised your staff Microsoft Entra ID SSO at the 26 October launch."
+          }
+        ],
+        "acceptance_criteria": [],
+        "owner_id": null,
+        "due_date": "2026-10-26"
+      }
+    ],
+    "findings": [
+      {
+        "id": "fnd_hp_scope",
+        "kind": "scope_mismatch",
+        "title": "Launch promise differs from accepted scope",
+        "explanation": "The presales SSO launch promise conflicts with the accepted phase-two baseline; its authority needs a reviewer decision.",
+        "commitment_ids": [
+          "cmt_hp_sso_phase2",
+          "cmt_hp_sso_launch"
+        ],
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_sow_001",
+            "start_char": 266,
+            "end_char": 380,
+            "quote": "Launch scope is password-based staff login; Microsoft Entra ID SSO is scheduled for phase two on 16 November 2026."
+          },
+          {
+            "source_version_id": "sv_hp_presales_001",
+            "start_char": 306,
+            "end_char": 382,
+            "quote": "We have promised your staff Microsoft Entra ID SSO at the 26 October launch."
+          }
+        ]
+      },
+      {
+        "id": "fnd_hp_acceptance",
+        "kind": "acceptance_gap",
+        "title": "SSO acceptance evidence is missing",
+        "explanation": "The board marks overall login readiness complete, but password evidence does not establish SSO acceptance for the proposed launch promise.",
+        "commitment_ids": [
+          "cmt_hp_sso_launch"
+        ],
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_presales_001",
+            "start_char": 306,
+            "end_char": 382,
+            "quote": "We have promised your staff Microsoft Entra ID SSO at the 26 October launch."
+          },
+          {
+            "source_version_id": "sv_hp_checklist_001",
+            "start_char": 257,
+            "end_char": 309,
+            "quote": "LOGIN-01: Overall launch login readiness — Complete."
+          },
+          {
+            "source_version_id": "sv_hp_checklist_001",
+            "start_char": 310,
+            "end_char": 373,
+            "quote": "Evidence recorded: password login passed on the staging portal."
+          },
+          {
+            "source_version_id": "sv_hp_checklist_001",
+            "start_char": 374,
+            "end_char": 445,
+            "quote": "No Entra ID SSO test run or customer SSO acceptance record is attached."
+          }
+        ]
+      },
+      {
+        "id": "fnd_hp_dependency",
+        "kind": "dependency_conflict",
+        "title": "SSO prerequisites are scheduled after launch",
+        "explanation": "If the proposed SSO launch promise is adopted, its credentials and security approval arrive after go-live.",
+        "commitment_ids": [
+          "cmt_hp_sso_launch"
+        ],
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_presales_001",
+            "start_char": 306,
+            "end_char": 382,
+            "quote": "We have promised your staff Microsoft Entra ID SSO at the 26 October launch."
+          },
+          {
+            "source_version_id": "sv_hp_readiness_001",
+            "start_char": 249,
+            "end_char": 303,
+            "quote": "Go-live is scheduled for 26 October 2026 at 09:00 UTC."
+          },
+          {
+            "source_version_id": "sv_hp_readiness_001",
+            "start_char": 304,
+            "end_char": 400,
+            "quote": "For SSO at launch, the customer tenant credentials and security approval are both prerequisites."
+          },
+          {
+            "source_version_id": "sv_hp_readiness_001",
+            "start_char": 401,
+            "end_char": 520,
+            "quote": "Customer tenant credentials are planned for 28 October 2026; customer security approval is planned for 29 October 2026."
+          }
+        ]
+      }
+    ],
+    "coverage_warnings": [
+      "A reviewer must reconcile the accepted phase-two scope with the proposed SSO launch promise."
+    ]
+  }
+}

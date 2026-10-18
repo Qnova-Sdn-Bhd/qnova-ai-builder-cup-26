@@ -1,0 +1,319 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "scenario_id": "scn_12",
+  "events": [
+    {
+      "id": "evt_hp_initial_analysis",
+      "operation": "analyze",
+      "analysis_run_id": "run_hp_initial",
+      "evaluation_as_of": "2026-10-22T12:00:00Z"
+    },
+    {
+      "id": "evt_hp_accept_phase2",
+      "operation": "review_commitment",
+      "actor_id": "usr_reviewer",
+      "commitment_id": "cmt_hp_sso_phase2",
+      "request": {
+        "decision": "accept",
+        "reason": "Reviewed the accepted phase-two baseline; the presales launch promise remains proposed.",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_sow_001",
+            "start_char": 266,
+            "end_char": 380,
+            "quote": "Launch scope is password-based staff login; Microsoft Entra ID SSO is scheduled for phase two on 16 November 2026."
+          }
+        ],
+        "expected_commitment_version": 1,
+        "expected_evidence_revision": 1,
+        "supersedes_commitment_id": null
+      },
+      "capture": {
+        "request.expected_commitment_version": "current_commitment.version"
+      }
+    },
+    {
+      "id": "evt_hp_reanalyse",
+      "operation": "analyze",
+      "analysis_run_id": "run_hp_after_accept",
+      "evaluation_as_of": "2026-10-22T12:10:00Z"
+    },
+    {
+      "id": "evt_hp_propose",
+      "operation": "create_action_proposal",
+      "action_id": "ap_hp_readiness",
+      "request": {
+        "analysis_run_id": "run_hp_after_accept",
+        "payload": {
+          "finding_id": "fnd_hp_dependency",
+          "title": "Resolve launch SSO readiness and acceptance evidence",
+          "description": "Confirm tenant credentials and security approval before launch; retain acceptance evidence and request a human scope decision.",
+          "owner_id": "usr_reviewer",
+          "due_date": "2026-10-24"
+        },
+        "expected_evidence_revision": 2,
+        "expected_board_revision": 1,
+        "expected_finding_version": 1,
+        "replaces_action_id": null
+      },
+      "capture": {
+        "request.expected_finding_version": "current_finding.version"
+      }
+    },
+    {
+      "id": "evt_hp_approve",
+      "operation": "review_action",
+      "actor_id": "usr_reviewer",
+      "action_id": "ap_hp_readiness",
+      "request": {
+        "decision": "approve",
+        "note": "Approve this exact blocker task; no implementation or acceptance is implied.",
+        "binding": {
+          "payload_hash": "48318bbc5d3b6aed96a339cf89a1627c94f9f84e6eac89d4e0c5cad153e36e4b",
+          "evidence_revision": 2,
+          "base_board_revision": 1,
+          "finding_version": 1
+        }
+      },
+      "capture": {
+        "request.binding": "current_action.binding"
+      }
+    },
+    {
+      "id": "evt_hp_execute",
+      "operation": "execute_action",
+      "actor_id": "usr_reviewer",
+      "action_id": "ap_hp_readiness",
+      "idempotency_key": "idem_hp_readiness",
+      "request": {
+        "binding": {
+          "payload_hash": "48318bbc5d3b6aed96a339cf89a1627c94f9f84e6eac89d4e0c5cad153e36e4b",
+          "evidence_revision": 2,
+          "base_board_revision": 1,
+          "finding_version": 1
+        }
+      },
+      "capture": {
+        "request.binding": "approved_action.binding"
+      }
+    },
+    {
+      "id": "evt_hp_import_amendment",
+      "operation": "upload_source",
+      "source_version_id": "sv_hp_sow_002",
+      "evaluation_as_of": "2026-10-23T08:30:00Z"
+    },
+    {
+      "id": "evt_hp_review_amendment",
+      "operation": "review_source",
+      "actor_id": "usr_reviewer",
+      "source_version_id": "sv_hp_sow_002",
+      "evaluation_as_of": "2026-10-23T09:30:00Z",
+      "request": {
+        "authority": "accepted_baseline",
+        "effective_at": "2026-10-23T09:00:00Z",
+        "supersedes_source_version_id": "sv_hp_sow_001",
+        "reason": "I accept this complete consolidated replacement baseline.",
+        "expected_evidence_revision": 3
+      }
+    },
+    {
+      "id": "evt_hp_analyze_amendment",
+      "operation": "analyze",
+      "analysis_run_id": "run_hp_amendment",
+      "evaluation_as_of": "2026-10-23T09:35:00Z"
+    },
+    {
+      "id": "evt_hp_accept_launch",
+      "operation": "review_commitment",
+      "actor_id": "usr_reviewer",
+      "commitment_id": "cmt_hp_sso_launch",
+      "request": {
+        "decision": "accept",
+        "reason": "The accepted replacement baseline now requires launch SSO and supersedes phase-two SSO.",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 388,
+            "end_char": 494,
+            "quote": "Launch on 26 October 2026 includes Microsoft Entra ID SSO; the earlier phase-two SSO schedule is replaced."
+          },
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 495,
+            "end_char": 635,
+            "quote": "Acceptance requires UAT-HP-SSO-01: customer-tenant SAML sign-in, logout and second sign-in, plus the project reviewer's explicit acceptance."
+          }
+        ],
+        "expected_commitment_version": 1,
+        "expected_evidence_revision": 4,
+        "supersedes_commitment_id": "cmt_hp_sso_phase2"
+      },
+      "capture": {
+        "request.expected_commitment_version": "current_commitment.version"
+      }
+    },
+    {
+      "id": "evt_hp_import_readiness",
+      "operation": "upload_source",
+      "source_version_id": "sv_hp_readiness_002",
+      "evaluation_as_of": "2026-10-23T11:10:00Z"
+    },
+    {
+      "id": "evt_hp_review_readiness",
+      "operation": "review_source",
+      "actor_id": "usr_reviewer",
+      "source_version_id": "sv_hp_readiness_002",
+      "request": {
+        "authority": "context",
+        "effective_at": null,
+        "supersedes_source_version_id": null,
+        "reason": "Reviewed the recorded credential receipt and security approval facts.",
+        "expected_evidence_revision": 6
+      }
+    },
+    {
+      "id": "evt_hp_import_uat",
+      "operation": "upload_source",
+      "source_version_id": "sv_hp_acceptance_001",
+      "evaluation_as_of": "2026-10-24T11:00:00Z"
+    },
+    {
+      "id": "evt_hp_review_uat",
+      "operation": "review_source",
+      "actor_id": "usr_reviewer",
+      "source_version_id": "sv_hp_acceptance_001",
+      "request": {
+        "authority": "acceptance_evidence",
+        "effective_at": null,
+        "supersedes_source_version_id": null,
+        "reason": "Reviewed the test identity, protocol, test steps and recorded acceptance.",
+        "expected_evidence_revision": 8
+      }
+    },
+    {
+      "id": "evt_hp_analyze_acceptance",
+      "operation": "analyze",
+      "analysis_run_id": "run_hp_acceptance",
+      "evaluation_as_of": "2026-10-24T11:01:00Z"
+    },
+    {
+      "id": "evt_hp_close_launch",
+      "operation": "review_commitment",
+      "actor_id": "usr_reviewer",
+      "commitment_id": "cmt_hp_sso_launch",
+      "request": {
+        "decision": "close",
+        "reason": "Reviewed UAT-HP-SSO-01 and its explicit acceptance; all stated SSO criteria are evidenced.",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_acceptance_001",
+            "start_char": 370,
+            "end_char": 445,
+            "quote": "Result: customer-tenant SAML sign-in, logout and second sign-in all passed."
+          },
+          {
+            "source_version_id": "sv_hp_acceptance_001",
+            "start_char": 446,
+            "end_char": 582,
+            "quote": "Reviewer acceptance: reviewer@harbour.test reviewed UAT-HP-SSO-01 and accepted the SSO launch criterion on 24 October 2026 at 10:30 UTC."
+          }
+        ],
+        "expected_commitment_version": 2,
+        "expected_evidence_revision": 9,
+        "supersedes_commitment_id": null
+      },
+      "capture": {
+        "request.expected_commitment_version": "current_commitment.version"
+      }
+    },
+    {
+      "id": "evt_hp_resolve_scope",
+      "operation": "review_finding",
+      "actor_id": "usr_reviewer",
+      "finding_id": "fnd_hp_scope",
+      "request": {
+        "decision": "resolve",
+        "reason": "The authorized consolidated baseline now aligns the launch scope with the SSO promise.",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 388,
+            "end_char": 494,
+            "quote": "Launch on 26 October 2026 includes Microsoft Entra ID SSO; the earlier phase-two SSO schedule is replaced."
+          },
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 495,
+            "end_char": 635,
+            "quote": "Acceptance requires UAT-HP-SSO-01: customer-tenant SAML sign-in, logout and second sign-in, plus the project reviewer's explicit acceptance."
+          }
+        ],
+        "expected_finding_version": 1,
+        "expected_evidence_revision": 10
+      },
+      "capture": {
+        "request.expected_finding_version": "current_finding.version"
+      }
+    },
+    {
+      "id": "evt_hp_resolve_dependency",
+      "operation": "review_finding",
+      "actor_id": "usr_reviewer",
+      "finding_id": "fnd_hp_dependency",
+      "request": {
+        "decision": "resolve",
+        "reason": "The recorded credential receipt and security approval precede launch.",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_readiness_002",
+            "start_char": 312,
+            "end_char": 386,
+            "quote": "Customer tenant credentials were received on 23 October 2026 at 10:00 UTC."
+          },
+          {
+            "source_version_id": "sv_hp_readiness_002",
+            "start_char": 387,
+            "end_char": 459,
+            "quote": "Customer security approval was recorded on 23 October 2026 at 11:00 UTC."
+          }
+        ],
+        "expected_finding_version": 1,
+        "expected_evidence_revision": 10
+      },
+      "capture": {
+        "request.expected_finding_version": "current_finding.version"
+      }
+    },
+    {
+      "id": "evt_hp_resolve_acceptance",
+      "operation": "review_finding",
+      "actor_id": "usr_reviewer",
+      "finding_id": "fnd_hp_acceptance",
+      "request": {
+        "decision": "resolve",
+        "reason": "The specified customer-tenant SSO test and reviewer acceptance are now evidenced.",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_acceptance_001",
+            "start_char": 370,
+            "end_char": 445,
+            "quote": "Result: customer-tenant SAML sign-in, logout and second sign-in all passed."
+          },
+          {
+            "source_version_id": "sv_hp_acceptance_001",
+            "start_char": 446,
+            "end_char": 582,
+            "quote": "Reviewer acceptance: reviewer@harbour.test reviewed UAT-HP-SSO-01 and accepted the SSO launch criterion on 24 October 2026 at 10:30 UTC."
+          }
+        ],
+        "expected_finding_version": 1,
+        "expected_evidence_revision": 10
+      },
+      "capture": {
+        "request.expected_finding_version": "current_finding.version"
+      }
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="Handoff Guardian architecture authoring" version="24.7.17" type="device" compressed="false">
+  <diagram id="process-ai-automation" name="Process, AI, automation and agent">
+    <mxGraphModel dx="2100" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2100" pageHeight="1400" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="text-1" value="Handoff Guardian | Process, AI and automation" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=34;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="48" y="28" width="2004" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="text-2" value="One end-to-end view • human decisions, automated work and one managed AI agent • Google Cloud prototype" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="48" y="83" width="2004" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="header-rule" value="" style="rounded=0;arcSize=12;whiteSpace=wrap;html=0;fillColor=#DBE4EE;strokeColor=none;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="48" y="129" width="2004" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="text-3" value="BUSINESS&#10;PROCESS" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=18;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="173" width="175" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="step-collect" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#EAF2FF;strokeColor=#1A73E8;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="165" width="224" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-4" value="1  Collect evidence" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="290" y="187" width="204" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="step-prepare" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#FEF3E2;strokeColor=#B06000;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="526" y="165" width="224" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-5" value="2  Extract &amp; prepare" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="536" y="187" width="204" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="step-flow-prepare" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#526579;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step-collect" target="step-prepare">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step-assess" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#F1EAFF;strokeColor=#7650B3;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="772" y="165" width="224" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-6" value="3  AI assessment" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="782" y="187" width="204" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="step-flow-assess" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#526579;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step-prepare" target="step-assess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step-validate" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#FEF3E2;strokeColor=#B06000;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1018" y="165" width="224" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-7" value="4  Validate results" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1028" y="187" width="204" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="step-flow-validate" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#526579;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step-assess" target="step-validate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step-approve" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#EAF2FF;strokeColor=#1A73E8;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1264" y="165" width="224" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-8" value="5  Review &amp; approve" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1274" y="187" width="204" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="step-flow-approve" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#526579;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step-validate" target="step-approve">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step-create" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#FEF3E2;strokeColor=#B06000;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="165" width="224" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-9" value="6  Create blocker task" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="187" width="204" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="step-flow-create" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#526579;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step-approve" target="step-create">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="step-reassess" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#EAF2FF;strokeColor=#1A73E8;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1756" y="165" width="224" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-10" value="7  Reassess &amp; close" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1766" y="187" width="204" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="step-flow-reassess" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#526579;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step-create" target="step-reassess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="human-lane" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#F4F8FF;strokeColor=#CED9E7;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="48" y="280" width="2004" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="automation-lane" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#FFF9EF;strokeColor=#CED9E7;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="48" y="520" width="2004" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-lane" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#FAF7FF;strokeColor=#CED9E7;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="48" y="805" width="2004" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="text-11" value="HUMAN&#10;DECISIONS" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#1A73E8;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="303" width="175" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="text-12" value="Reviewer owns scope,&#10;approval and closure." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="378" width="175" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-13" value="AUTOMATION&#10;&amp; DOCUMENT AI" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=19;fontStyle=1;fontColor=#B06000;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="553" width="175" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="text-14" value="Cloud Run, Tasks,&#10;Firestore, Storage&#10;and Document AI." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="639" width="175" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="text-15" value="AI AGENT&#10;&amp; REASONING" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#7650B3;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="842" width="175" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="text-16" value="One deployed agent.&#10;Three capabilities&#10;inside one workflow." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="931" width="175" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="supply" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="280" y="310" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="supply-card" value="" style="rounded=1;arcSize=12;fillColor=#EAF2FF;strokeColor=#1A73E8;strokeWidth=1.5;dashed=0;" vertex="1" parent="supply">
+          <mxGeometry x="0" y="0" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="text-17" value="REVIEWER" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#1A73E8;fillColor=none;strokeColor=none;" vertex="1" parent="supply">
+          <mxGeometry x="18" y="13" width="344" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-18" value="01 Supply evidence" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="supply">
+          <mxGeometry x="18" y="38" width="344" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-19" value="Upload PDF, TXT or Markdown sources.&#10;Review source authority when ready.&#10;Decide what counts as accepted scope." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="supply">
+          <mxGeometry x="18" y="76" width="344" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="request" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="770" y="310" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="request-card" value="" style="rounded=1;arcSize=12;fillColor=#EAF2FF;strokeColor=#1A73E8;strokeWidth=1.5;dashed=0;" vertex="1" parent="request">
+          <mxGeometry x="0" y="0" width="380" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="text-20" value="REVIEWER" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#1A73E8;fillColor=none;strokeColor=none;" vertex="1" parent="request">
+          <mxGeometry x="18" y="13" width="344" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-21" value="Request assessment" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="request">
+          <mxGeometry x="18" y="38" width="344" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-22" value="Confirm ready evidence and authority.&#10;Click Run analysis.&#10;Use the project's recorded business time." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="request">
+          <mxGeometry x="18" y="76" width="344" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="review" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="310" width="350" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="review-card" value="" style="rounded=1;arcSize=12;fillColor=#EAF2FF;strokeColor=#1A73E8;strokeWidth=1.5;dashed=0;" vertex="1" parent="review">
+          <mxGeometry x="0" y="0" width="350" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="text-23" value="REVIEWER" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#1A73E8;fillColor=none;strokeColor=none;" vertex="1" parent="review">
+          <mxGeometry x="18" y="13" width="314" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-24" value="05 Review &amp; approve" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="review">
+          <mxGeometry x="18" y="38" width="314" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-25" value="Inspect findings and cited evidence.&#10;Approve the exact action payload.&#10;Execute as a separate decision." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="review">
+          <mxGeometry x="18" y="76" width="314" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="closure" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="310" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="closure-card" value="" style="rounded=1;arcSize=12;fillColor=#EAF2FF;strokeColor=#1A73E8;strokeWidth=1.5;dashed=0;" vertex="1" parent="closure">
+          <mxGeometry x="0" y="0" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="text-26" value="REVIEWER · LATER DECISIONS" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#1A73E8;fillColor=none;strokeColor=none;" vertex="1" parent="closure">
+          <mxGeometry x="18" y="13" width="284" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-27" value="07 Review acceptance" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="closure">
+          <mxGeometry x="18" y="38" width="284" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-28" value="Inspect delivery evidence.&#10;Explicitly close commitments.&#10;Reassess when sources change." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="closure">
+          <mxGeometry x="18" y="76" width="284" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ingest" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="280" y="575" width="380" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ingest-card" value="" style="rounded=1;arcSize=12;fillColor=#FEF3E2;strokeColor=#B06000;strokeWidth=1.5;dashed=0;" vertex="1" parent="ingest">
+          <mxGeometry x="0" y="0" width="380" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="text-29" value="AI EXTRACTION + AUTOMATION" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#B06000;fillColor=none;strokeColor=none;" vertex="1" parent="ingest">
+          <mxGeometry x="18" y="13" width="344" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-30" value="02 Extract &amp; prepare" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="ingest">
+          <mxGeometry x="18" y="38" width="344" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-31" value="Document AI OCR reads every PDF.&#10;Store canonical text + originals in GCS.&#10;Worker publishes ready evidence.&#10;TXT / Markdown use UTF-8 parsing." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="ingest">
+          <mxGeometry x="18" y="76" width="344" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="snapshot" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="770" y="575" width="380" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="snapshot-card" value="" style="rounded=1;arcSize=12;fillColor=#FEF3E2;strokeColor=#B06000;strokeWidth=1.5;dashed=0;" vertex="1" parent="snapshot">
+          <mxGeometry x="0" y="0" width="380" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="text-32" value="API + QUEUED WORKER" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#B06000;fillColor=none;strokeColor=none;" vertex="1" parent="snapshot">
+          <mxGeometry x="18" y="13" width="344" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-33" value="Prepare analysis packet" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="snapshot">
+          <mxGeometry x="18" y="38" width="344" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-34" value="Authorize project membership.&#10;Capture immutable evidence + revisions.&#10;Cloud Tasks invokes the private worker.&#10;Worker calls the managed AI agent." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="snapshot">
+          <mxGeometry x="18" y="76" width="344" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="publish" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="575" width="350" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="publish-card" value="" style="rounded=1;arcSize=12;fillColor=#FEF3E2;strokeColor=#B06000;strokeWidth=1.5;dashed=0;" vertex="1" parent="publish">
+          <mxGeometry x="0" y="0" width="350" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="text-35" value="DETERMINISTIC WORKER CHECKS" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#B06000;fillColor=none;strokeColor=none;" vertex="1" parent="publish">
+          <mxGeometry x="18" y="13" width="314" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-36" value="04 Validate &amp; publish" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="publish">
+          <mxGeometry x="18" y="38" width="314" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-37" value="Recheck schema, IDs and exact quotes.&#10;Recheck permission and revisions.&#10;Publish findings and warnings.&#10;Stale evidence blocks fresh actions." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="publish">
+          <mxGeometry x="18" y="76" width="314" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="task" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="575" width="320" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="task-card" value="" style="rounded=1;arcSize=12;fillColor=#FEF3E2;strokeColor=#B06000;strokeWidth=1.5;dashed=0;" vertex="1" parent="task">
+          <mxGeometry x="0" y="0" width="320" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="text-38" value="API + FIRESTORE TRANSACTION" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#B06000;fillColor=none;strokeColor=none;" vertex="1" parent="task">
+          <mxGeometry x="18" y="13" width="284" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-39" value="06 Persist approved task" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="task">
+          <mxGeometry x="18" y="38" width="284" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-40" value="Recheck approval and freshness.&#10;Write task + receipt + audit&#10;and board revision atomically.&#10;Replay returns the recorded result." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="task">
+          <mxGeometry x="18" y="76" width="284" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-services" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="280" y="835" width="380" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-services-card" value="" style="rounded=1;arcSize=12;fillColor=#F1EAFF;strokeColor=#7650B3;strokeWidth=1.5;dashed=0;" vertex="1" parent="ai-services">
+          <mxGeometry x="0" y="0" width="380" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="text-41" value="TWO AI SERVICES" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#7650B3;fillColor=none;strokeColor=none;" vertex="1" parent="ai-services">
+          <mxGeometry x="18" y="13" width="344" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-42" value="Extraction + reasoning" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="ai-services">
+          <mxGeometry x="18" y="38" width="344" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-43" value="Document AI reads PDF text.&#10;Gemini compares meaning and conditions.&#10;ADK runs the bounded analysis workflow.&#10;&#10;Cloud Run coordinates jobs.&#10;Its worker uses deterministic code." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="ai-services">
+          <mxGeometry x="18" y="76" width="344" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="adk" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#F1EAFF;strokeColor=#C8D5E5;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="770" y="835" width="870" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="text-44" value="03 Handoff Guardian agent | ADK on Vertex AI Agent Engine" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=19;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="792" y="851" width="826" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="text-45" value="One read-only workflow calling Gemini 3.8 Flash on Vertex AI; the three capabilities below belong to this same agent." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="792" y="882" width="826" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="understand" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="790" y="925" width="255" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="understand-card" value="" style="rounded=1;arcSize=12;fillColor=#F1EAFF;strokeColor=#7650B3;strokeWidth=1.5;dashed=0;" vertex="1" parent="understand">
+          <mxGeometry x="0" y="0" width="255" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="text-46" value="CAPABILITY 1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#7650B3;fillColor=none;strokeColor=none;" vertex="1" parent="understand">
+          <mxGeometry x="18" y="13" width="219" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-47" value="Read evidence" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="understand">
+          <mxGeometry x="18" y="38" width="219" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-48" value="Compare meanings.&#10;Respect reviewed scope.&#10;Handle untrusted text." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="understand">
+          <mxGeometry x="18" y="76" width="219" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="detect" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="925" width="255" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="detect-card" value="" style="rounded=1;arcSize=12;fillColor=#F1EAFF;strokeColor=#7650B3;strokeWidth=1.5;dashed=0;" vertex="1" parent="detect">
+          <mxGeometry x="0" y="0" width="255" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="text-49" value="CAPABILITY 2" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#7650B3;fillColor=none;strokeColor=none;" vertex="1" parent="detect">
+          <mxGeometry x="18" y="13" width="219" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-50" value="Find discrepancies" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="detect">
+          <mxGeometry x="18" y="38" width="219" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-51" value="Scope mismatches&#10;Acceptance gaps&#10;Dependency conflicts" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="detect">
+          <mxGeometry x="18" y="76" width="219" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="ground" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="925" width="270" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="ground-card" value="" style="rounded=1;arcSize=12;fillColor=#F1EAFF;strokeColor=#7650B3;strokeWidth=1.5;dashed=0;" vertex="1" parent="ground">
+          <mxGeometry x="0" y="0" width="270" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="text-52" value="CAPABILITY 3" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#7650B3;fillColor=none;strokeColor=none;" vertex="1" parent="ground">
+          <mxGeometry x="18" y="13" width="234" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-53" value="Ground findings" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="ground">
+          <mxGeometry x="18" y="38" width="234" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-54" value="Propose commitments.&#10;Choose exact quotes.&#10;Resolve / verify citations." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="ground">
+          <mxGeometry x="18" y="76" width="234" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="capability-flow1" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#7650B3;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="understand" target="detect">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="capability-flow2" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#7650B3;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="detect" target="ground">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="authority" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="835" width="320" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="authority-card" value="" style="rounded=1;arcSize=12;fillColor=#F1EAFF;strokeColor=#7650B3;strokeWidth=1.5;dashed=0;" vertex="1" parent="authority">
+          <mxGeometry x="0" y="0" width="320" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="text-55" value="AGENT DECISION BOUNDARY" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#7650B3;fillColor=none;strokeColor=none;" vertex="1" parent="authority">
+          <mxGeometry x="18" y="13" width="284" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-56" value="Human authority" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="authority">
+          <mxGeometry x="18" y="38" width="284" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-57" value="The agent proposes only.&#10;It cannot accept scope,&#10;approve actions or write tasks.&#10;&#10;Limit: 3 model requests / 60s.&#10;Worker validates again." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="authority">
+          <mxGeometry x="18" y="76" width="284" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="upload" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#1A73E8;endArrow=block;endFill=1;dashed=0;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="supply" target="ingest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-58" value="Upload" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#1A73E8;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="402" y="503" width="65" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="ready" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#B06000;endArrow=block;endFill=1;dashed=1;exitX=0.85;exitY=0;exitDx=0;exitDy=0;entryX=0.85;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="ingest" target="supply">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-59" value="Ready" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#B06000;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="611" y="503" width="55" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="ready-packet" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#B06000;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ingest" target="snapshot">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-60" value="Ready evidence&#10;+ reviewed facts" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#B06000;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="669" y="627" width="96" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="request-analysis" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#1A73E8;endArrow=block;endFill=1;dashed=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="request" target="snapshot">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-61" value="Run analysis" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#1A73E8;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="976" y="503" width="110" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="invoke" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#7650B3;endArrow=block;endFill=1;dashed=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.21839080459770116;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="snapshot" target="adk">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-62" value="Authorized snapshot" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#7650B3;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="976" y="785" width="165" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="validated-output" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#7650B3;endArrow=block;endFill=1;dashed=0;exitX=0.7988505747126436;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="adk" target="publish">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-63" value="Validated final result" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#7650B3;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1480" y="785" width="160" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="findings" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#1A73E8;endArrow=block;endFill=1;dashed=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="publish" target="review">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-64" value="Cited findings" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#1A73E8;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1477" y="503" width="106" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="approved-execute" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#1A73E8;endArrow=block;endFill=1;dashed=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="review" target="task">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1665" y="385" />
+              <mxPoint x="1665" y="550" />
+              <mxPoint x="1786" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-65" value="Approved payload&#10;+ Execute request" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#1A73E8;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="493" width="152" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="task-audit" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#188038;endArrow=block;endFill=1;dashed=0;exitX=0.85;exitY=0;exitDx=0;exitDy=0;entryX=0.85;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="task" target="closure">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-66" value="Task + audit" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#188038;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1870" y="503" width="88" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="reassess-loop" style="edgeStyle=none;noEdgeStyle=1;rounded=0;html=0;strokeWidth=2;strokeColor=#1A73E8;endArrow=block;endFill=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="closure" target="supply">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1850" y="257" />
+              <mxPoint x="470" y="257" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-67" value="New or reviewed evidence → run a fresh assessment" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=14;fontStyle=0;fontColor=#1A73E8;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="810" y="243" width="395" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="text-68" value="RECOVERY&#10;&amp; CHANGE" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1174" width="175" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="durable" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1150" width="530" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="durable-card" value="" style="rounded=1;arcSize=12;fillColor=#F1F5F9;strokeColor=#526579;strokeWidth=1.5;dashed=0;" vertex="1" parent="durable">
+          <mxGeometry x="0" y="0" width="530" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="text-69" value="AUTOMATED RECOVERY" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="durable">
+          <mxGeometry x="18" y="13" width="494" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-70" value="Recover work safely" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="durable">
+          <mxGeometry x="18" y="38" width="494" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-71" value="Cloud Tasks delivers jobs; Firestore stores the outbox.&#10;Cloud Scheduler checks unfinished work every minute.&#10;Leases, fencing and idempotency control duplicates." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="durable">
+          <mxGeometry x="18" y="76" width="494" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="freshness" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="845" y="1150" width="535" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="freshness-card" value="" style="rounded=1;arcSize=12;fillColor=#F1F5F9;strokeColor=#526579;strokeWidth=1.5;dashed=0;" vertex="1" parent="freshness">
+          <mxGeometry x="0" y="0" width="535" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="text-72" value="EVIDENCE CHANGES" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="freshness">
+          <mxGeometry x="18" y="13" width="499" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-73" value="Invalidate stale decisions" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="freshness">
+          <mxGeometry x="18" y="38" width="499" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-74" value="New or reviewed evidence increments the revision.&#10;Re-run analysis and create a fresh proposal as needed.&#10;An old approval cannot authorize a changed payload." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="freshness">
+          <mxGeometry x="18" y="76" width="499" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="outcome" value="" style="group;" vertex="1" parent="1">
+          <mxGeometry x="1415" y="1150" width="595" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="outcome-card" value="" style="rounded=1;arcSize=12;fillColor=#E6F4EA;strokeColor=#188038;strokeWidth=1.5;dashed=0;" vertex="1" parent="outcome">
+          <mxGeometry x="0" y="0" width="595" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="text-75" value="HUMAN-REVIEWED OUTCOME" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#188038;fillColor=none;strokeColor=none;" vertex="1" parent="outcome">
+          <mxGeometry x="18" y="13" width="559" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="text-76" value="A task records the next step" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#182B43;fillColor=none;strokeColor=none;" vertex="1" parent="outcome">
+          <mxGeometry x="18" y="38" width="559" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="text-77" value="A blocker task does not establish delivery or acceptance.&#10;Finding disposition and commitment closure are explicit reviews.&#10;Accepted scope always comes from reviewer decisions." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="outcome">
+          <mxGeometry x="18" y="76" width="559" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="footer-rule" value="" style="rounded=0;arcSize=12;whiteSpace=wrap;html=0;fillColor=#DBE4EE;strokeColor=none;strokeWidth=1.5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="48" y="1335" width="2004" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-78" value="Blue: human decisions • Amber: automated work / OCR • Purple: one AI agent and its capabilities • Green: persisted outcome • Dashed arrows: feedback / ready-state return" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=13;fontStyle=0;fontColor=#526579;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="48" y="1353" width="2004" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

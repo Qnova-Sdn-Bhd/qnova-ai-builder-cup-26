@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2100" height="1400" viewBox="0 0 2100 1400">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<rect width="2100" height="1400" fill="#FFFFFF"/>
+<text x="48" y="62.0" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#182B43" text-anchor="start">Handoff Guardian | Process, AI and automation</text>
+<text x="48" y="100.0" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#526579" text-anchor="start">One end-to-end view • human decisions, automated work and one managed AI agent • Google Cloud prototype</text>
+<rect x="48" y="129" width="2004" height="2" rx="0" fill="#DBE4EE" stroke="none" stroke-width="1.5"/>
+<text x="70" y="191.0" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#182B43" text-anchor="start">BUSINESS</text>
+<text x="70" y="215.3" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#182B43" text-anchor="start">PROCESS</text>
+<rect x="280" y="165" width="224" height="65" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="392.0" y="204.0" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#182B43" text-anchor="middle">1  Collect evidence</text>
+<rect x="526" y="165" width="224" height="65" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="638.0" y="204.0" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#182B43" text-anchor="middle">2  Extract &amp; prepare</text>
+<polyline points="504,197.5 526,197.5" fill="none" stroke="#526579" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="772" y="165" width="224" height="65" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="884.0" y="204.0" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#182B43" text-anchor="middle">3  AI assessment</text>
+<polyline points="750,197.5 772,197.5" fill="none" stroke="#526579" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1018" y="165" width="224" height="65" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="1130.0" y="204.0" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#182B43" text-anchor="middle">4  Validate results</text>
+<polyline points="996,197.5 1018,197.5" fill="none" stroke="#526579" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1264" y="165" width="224" height="65" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="1376.0" y="204.0" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#182B43" text-anchor="middle">5  Review &amp; approve</text>
+<polyline points="1242,197.5 1264,197.5" fill="none" stroke="#526579" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1510" y="165" width="224" height="65" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="1622.0" y="204.0" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#182B43" text-anchor="middle">6  Create blocker task</text>
+<polyline points="1488,197.5 1510,197.5" fill="none" stroke="#526579" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1756" y="165" width="224" height="65" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="1868.0" y="204.0" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#182B43" text-anchor="middle">7  Reassess &amp; close</text>
+<polyline points="1734,197.5 1756,197.5" fill="none" stroke="#526579" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="48" y="280" width="2004" height="205" rx="12" fill="#F4F8FF" stroke="#CED9E7" stroke-width="1.5"/>
+<rect x="48" y="520" width="2004" height="250" rx="12" fill="#FFF9EF" stroke="#CED9E7" stroke-width="1.5"/>
+<rect x="48" y="805" width="2004" height="310" rx="12" fill="#FAF7FF" stroke="#CED9E7" stroke-width="1.5"/>
+<text x="70" y="323.0" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1A73E8" text-anchor="start">HUMAN</text>
+<text x="70" y="350.0" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1A73E8" text-anchor="start">DECISIONS</text>
+<text x="70" y="392.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Reviewer owns scope,</text>
+<text x="70" y="410.9" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">approval and closure.</text>
+<text x="70" y="572.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#B06000" text-anchor="start">AUTOMATION</text>
+<text x="70" y="597.65" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#B06000" text-anchor="start">&amp; DOCUMENT AI</text>
+<text x="70" y="653.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Cloud Run, Tasks,</text>
+<text x="70" y="671.9" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Firestore, Storage</text>
+<text x="70" y="690.8" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">and Document AI.</text>
+<text x="70" y="862.0" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#7650B3" text-anchor="start">AI AGENT</text>
+<text x="70" y="889.0" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#7650B3" text-anchor="start">&amp; REASONING</text>
+<text x="70" y="945.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">One deployed agent.</text>
+<text x="70" y="963.9" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">Three capabilities</text>
+<text x="70" y="982.8" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">inside one workflow.</text>
+<rect x="280" y="310" width="380" height="150" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="298" y="335.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">REVIEWER</text>
+<text x="298" y="369.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">01 Supply evidence</text>
+<text x="298" y="402.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Upload PDF, TXT or Markdown sources.</text>
+<text x="298" y="423.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Review source authority when ready.</text>
+<text x="298" y="445.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Decide what counts as accepted scope.</text>
+<rect x="770" y="310" width="380" height="150" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="788" y="335.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">REVIEWER</text>
+<text x="788" y="369.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Request assessment</text>
+<text x="788" y="402.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Confirm ready evidence and authority.</text>
+<text x="788" y="423.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Click Run analysis.</text>
+<text x="788" y="445.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Use the project&#x27;s recorded business time.</text>
+<rect x="1290" y="310" width="350" height="150" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="1308" y="335.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">REVIEWER</text>
+<text x="1308" y="369.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">05 Review &amp; approve</text>
+<text x="1308" y="402.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Inspect findings and cited evidence.</text>
+<text x="1308" y="423.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Approve the exact action payload.</text>
+<text x="1308" y="445.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Execute as a separate decision.</text>
+<rect x="1690" y="310" width="320" height="150" rx="12" fill="#EAF2FF" stroke="#1A73E8" stroke-width="1.5"/>
+<text x="1708" y="335.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#1A73E8" text-anchor="start">REVIEWER · LATER DECISIONS</text>
+<text x="1708" y="369.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">07 Review acceptance</text>
+<text x="1708" y="402.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Inspect delivery evidence.</text>
+<text x="1708" y="423.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Explicitly close commitments.</text>
+<text x="1708" y="445.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Reassess when sources change.</text>
+<rect x="280" y="575" width="380" height="170" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="298" y="600.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#B06000" text-anchor="start">AI EXTRACTION + AUTOMATION</text>
+<text x="298" y="634.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">02 Extract &amp; prepare</text>
+<text x="298" y="667.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Document AI OCR reads every PDF.</text>
+<text x="298" y="688.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Store canonical text + originals in GCS.</text>
+<text x="298" y="710.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Worker publishes ready evidence.</text>
+<text x="298" y="731.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">TXT / Markdown use UTF-8 parsing.</text>
+<rect x="770" y="575" width="380" height="170" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="788" y="600.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#B06000" text-anchor="start">API + QUEUED WORKER</text>
+<text x="788" y="634.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Prepare analysis packet</text>
+<text x="788" y="667.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Authorize project membership.</text>
+<text x="788" y="688.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Capture immutable evidence + revisions.</text>
+<text x="788" y="710.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Cloud Tasks invokes the private worker.</text>
+<text x="788" y="731.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Worker calls the managed AI agent.</text>
+<rect x="1290" y="575" width="350" height="170" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="1308" y="600.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#B06000" text-anchor="start">DETERMINISTIC WORKER CHECKS</text>
+<text x="1308" y="634.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">04 Validate &amp; publish</text>
+<text x="1308" y="667.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Recheck schema, IDs and exact quotes.</text>
+<text x="1308" y="688.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Recheck permission and revisions.</text>
+<text x="1308" y="710.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Publish findings and warnings.</text>
+<text x="1308" y="731.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Stale evidence blocks fresh actions.</text>
+<rect x="1690" y="575" width="320" height="170" rx="12" fill="#FEF3E2" stroke="#B06000" stroke-width="1.5"/>
+<text x="1708" y="600.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#B06000" text-anchor="start">API + FIRESTORE TRANSACTION</text>
+<text x="1708" y="634.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">06 Persist approved task</text>
+<text x="1708" y="667.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Recheck approval and freshness.</text>
+<text x="1708" y="688.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Write task + receipt + audit</text>
+<text x="1708" y="710.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">and board revision atomically.</text>
+<text x="1708" y="731.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Replay returns the recorded result.</text>
+<rect x="280" y="835" width="380" height="255" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="298" y="860.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7650B3" text-anchor="start">TWO AI SERVICES</text>
+<text x="298" y="894.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Extraction + reasoning</text>
+<text x="298" y="927.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Document AI reads PDF text.</text>
+<text x="298" y="948.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Gemini compares meaning and conditions.</text>
+<text x="298" y="970.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">ADK runs the bounded analysis workflow.</text>
+<text x="298" y="991.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start"></text>
+<text x="298" y="1013.4" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Cloud Run coordinates jobs.</text>
+<text x="298" y="1035.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Its worker uses deterministic code.</text>
+<rect x="770" y="835" width="870" height="255" rx="12" fill="#F1EAFF" stroke="#C8D5E5" stroke-width="1.5"/>
+<text x="792" y="870.0" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#182B43" text-anchor="start">03 Handoff Guardian agent | ADK on Vertex AI Agent Engine</text>
+<text x="792" y="896.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#526579" text-anchor="start">One read-only workflow calling Gemini 3.8 Flash on Vertex AI; the three capabilities below belong to this same agent.</text>
+<rect x="790" y="925" width="255" height="145" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="808" y="950.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7650B3" text-anchor="start">CAPABILITY 1</text>
+<text x="808" y="984.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Read evidence</text>
+<text x="808" y="1017.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Compare meanings.</text>
+<text x="808" y="1038.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Respect reviewed scope.</text>
+<text x="808" y="1060.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Handle untrusted text.</text>
+<rect x="1070" y="925" width="255" height="145" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="1088" y="950.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7650B3" text-anchor="start">CAPABILITY 2</text>
+<text x="1088" y="984.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Find discrepancies</text>
+<text x="1088" y="1017.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Scope mismatches</text>
+<text x="1088" y="1038.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Acceptance gaps</text>
+<text x="1088" y="1060.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Dependency conflicts</text>
+<rect x="1350" y="925" width="270" height="145" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="1368" y="950.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7650B3" text-anchor="start">CAPABILITY 3</text>
+<text x="1368" y="984.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Ground findings</text>
+<text x="1368" y="1017.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Propose commitments.</text>
+<text x="1368" y="1038.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Choose exact quotes.</text>
+<text x="1368" y="1060.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Resolve / verify citations.</text>
+<polyline points="1045,997.5 1070,997.5" fill="none" stroke="#7650B3" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<polyline points="1325,997.5 1350,997.5" fill="none" stroke="#7650B3" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1690" y="835" width="320" height="255" rx="12" fill="#F1EAFF" stroke="#7650B3" stroke-width="1.5"/>
+<text x="1708" y="860.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7650B3" text-anchor="start">AGENT DECISION BOUNDARY</text>
+<text x="1708" y="894.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Human authority</text>
+<text x="1708" y="927.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">The agent proposes only.</text>
+<text x="1708" y="948.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">It cannot accept scope,</text>
+<text x="1708" y="970.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">approve actions or write tasks.</text>
+<text x="1708" y="991.8" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start"></text>
+<text x="1708" y="1013.4" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Limit: 3 model requests / 60s.</text>
+<text x="1708" y="1035.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Worker validates again.</text>
+<polyline points="394.0,460 394.0,575" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="399" y="501" width="71" height="25" rx="3" fill="#FFFFFF"/>
+<text x="402" y="517.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#1A73E8" text-anchor="start">Upload</text>
+<polyline points="603.0,575 603.0,460" fill="none" stroke="#B06000" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<rect x="608" y="501" width="61" height="25" rx="3" fill="#FFFFFF"/>
+<text x="611" y="517.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#B06000" text-anchor="start">Ready</text>
+<polyline points="660,660.0 770,660.0" fill="none" stroke="#B06000" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="666" y="625" width="102" height="46" rx="3" fill="#FFFFFF"/>
+<text x="669" y="641.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#B06000" text-anchor="start">Ready evidence</text>
+<text x="669" y="659.9" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#B06000" text-anchor="start">+ reviewed facts</text>
+<polyline points="960.0,460 960.0,575" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="973" y="501" width="116" height="25" rx="3" fill="#FFFFFF"/>
+<text x="976" y="517.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#1A73E8" text-anchor="start">Run analysis</text>
+<polyline points="960.0,745 960.0,835" fill="none" stroke="#7650B3" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="973" y="783" width="171" height="25" rx="3" fill="#FFFFFF"/>
+<text x="976" y="799.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#7650B3" text-anchor="start">Authorized snapshot</text>
+<polyline points="1465.0,835 1465.0,745" fill="none" stroke="#7650B3" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1477" y="783" width="166" height="25" rx="3" fill="#FFFFFF"/>
+<text x="1480" y="799.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#7650B3" text-anchor="start">Validated final result</text>
+<polyline points="1465.0,575 1465.0,460" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1474" y="501" width="112" height="25" rx="3" fill="#FFFFFF"/>
+<text x="1477" y="517.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#1A73E8" text-anchor="start">Cited findings</text>
+<polyline points="1640,385.0 1665,385 1665,550 1786,550 1786.0,575" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1697" y="491" width="158" height="46" rx="3" fill="#FFFFFF"/>
+<text x="1700" y="507.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#1A73E8" text-anchor="start">Approved payload</text>
+<text x="1700" y="525.9" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#1A73E8" text-anchor="start">+ Execute request</text>
+<polyline points="1962.0,575 1962.0,460" fill="none" stroke="#188038" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1867" y="501" width="94" height="25" rx="3" fill="#FFFFFF"/>
+<text x="1870" y="517.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#188038" text-anchor="start">Task + audit</text>
+<polyline points="1850.0,310 1850,257 470,257 470.0,310" fill="none" stroke="#1A73E8" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" stroke-dasharray="7 5"/>
+<rect x="807" y="241" width="401" height="25" rx="3" fill="#FFFFFF"/>
+<text x="810" y="257.0" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#1A73E8" text-anchor="start">New or reviewed evidence → run a fresh assessment</text>
+<text x="70" y="1194.0" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#526579" text-anchor="start">RECOVERY</text>
+<text x="70" y="1221.0" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#526579" text-anchor="start">&amp; CHANGE</text>
+<rect x="280" y="1150" width="530" height="155" rx="12" fill="#F1F5F9" stroke="#526579" stroke-width="1.5"/>
+<text x="298" y="1175.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#526579" text-anchor="start">AUTOMATED RECOVERY</text>
+<text x="298" y="1209.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Recover work safely</text>
+<text x="298" y="1242.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Cloud Tasks delivers jobs; Firestore stores the outbox.</text>
+<text x="298" y="1263.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Cloud Scheduler checks unfinished work every minute.</text>
+<text x="298" y="1285.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Leases, fencing and idempotency control duplicates.</text>
+<rect x="845" y="1150" width="535" height="155" rx="12" fill="#F1F5F9" stroke="#526579" stroke-width="1.5"/>
+<text x="863" y="1175.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#526579" text-anchor="start">EVIDENCE CHANGES</text>
+<text x="863" y="1209.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">Invalidate stale decisions</text>
+<text x="863" y="1242.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">New or reviewed evidence increments the revision.</text>
+<text x="863" y="1263.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Re-run analysis and create a fresh proposal as needed.</text>
+<text x="863" y="1285.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">An old approval cannot authorize a changed payload.</text>
+<rect x="1415" y="1150" width="595" height="155" rx="12" fill="#E6F4EA" stroke="#188038" stroke-width="1.5"/>
+<text x="1433" y="1175.0" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#188038" text-anchor="start">HUMAN-REVIEWED OUTCOME</text>
+<text x="1433" y="1209.0" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#182B43" text-anchor="start">A task records the next step</text>
+<text x="1433" y="1242.0" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">A blocker task does not establish delivery or acceptance.</text>
+<text x="1433" y="1263.6" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Finding disposition and commitment closure are explicit reviews.</text>
+<text x="1433" y="1285.2" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#526579" text-anchor="start">Accepted scope always comes from reviewer decisions.</text>
+<rect x="48" y="1335" width="2004" height="1" rx="0" fill="#DBE4EE" stroke="none" stroke-width="1.5"/>
+<text x="48" y="1366.0" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526579" text-anchor="start">Blue: human decisions • Amber: automated work / OCR • Purple: one AI agent and its capabilities • Green: persisted outcome • Dashed arrows: feedback / ready-state return</text>
+</svg>

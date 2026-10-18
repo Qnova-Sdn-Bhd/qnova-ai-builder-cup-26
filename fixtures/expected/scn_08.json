@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "evaluation_only": true,
+  "scenario_id": "scn_08",
+  "project_id": "prj_heath_sync",
+  "expected_outcome": "needs_review",
+  "evidence_sufficiency": "ambiguous",
+  "expected_findings": [],
+  "expected_active_baseline_source_version_ids": [],
+  "forbidden_source_version_ids": [],
+  "review_questions": [
+    "Which signed baseline defines authentication scope?",
+    "What identity provider, launch date and acceptance criteria have been approved?"
+  ],
+  "must_not_claim": [
+    "Do not invent an SSO commitment, identity provider, deadline or finding.",
+    "State that the available evidence is insufficient for a definitive scope comparison."
+  ],
+  "expected_events": []
+}

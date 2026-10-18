@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "provider_mode": "mock",
+  "canned": true,
+  "live_accuracy_evidence": false,
+  "scenario_id": "scn_12",
+  "snapshot_key": "after_amendment_review",
+  "supported_snapshot": {
+    "project_id": "prj_harbour_portal",
+    "evidence_revision": 4,
+    "evaluation_as_of": "2026-10-23T09:35:00Z",
+    "source_versions": [
+      {
+        "id": "sv_hp_checklist_001",
+        "canonical_text_sha256": "a31c0bb53717f45e1b953ab51ae2a93c638d7bf2337320ff2805bb83af60c97b",
+        "authority": "context",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_presales_001",
+        "canonical_text_sha256": "82a2706fb798c6aa31d4b9df3770494ac2c11d1c1034bc1586aa9572ade30c25",
+        "authority": "proposal",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_readiness_001",
+        "canonical_text_sha256": "acfc2c796ae30bfb0a83a4cdf0c00e82095251f99e93ac3234dfba739b821a5e",
+        "authority": "context",
+        "effective_at": null
+      },
+      {
+        "id": "sv_hp_sow_001",
+        "canonical_text_sha256": "e80ddb09fecc09160a0bd0273a78268f9380c5fa9290107debede579b2793406",
+        "authority": "accepted_baseline",
+        "effective_at": "2026-10-20T09:00:00Z"
+      },
+      {
+        "id": "sv_hp_sow_002",
+        "canonical_text_sha256": "cc647dd5be7a262bc97ce31ba682faffafe8ebd0fe77bbdcc4781ffe7e5d8d47",
+        "authority": "accepted_baseline",
+        "effective_at": "2026-10-23T09:00:00Z"
+      }
+    ],
+    "commitment_statuses": {
+      "cmt_hp_sso_phase2": "accepted",
+      "cmt_hp_sso_launch": "proposed"
+    }
+  },
+  "snapshot_fingerprint_sha256": "a23b265f6e579e51e0b4833e4aab879dbe57c37a5edcb53718a2d2c729896b9c",
+  "notice": "CANNED DEMONSTRATION RESPONSE. This exercises UI flow only and is never a live-model accuracy result.",
+  "response": {
+    "proposed_commitments": [
+      {
+        "id": "cmt_hp_sso_launch",
+        "description": "The reviewed consolidated baseline now requires Microsoft Entra ID SSO for the 26 October launch.",
+        "acceptance_criteria": [
+          "UAT-HP-SSO-01 demonstrates customer-tenant SAML sign-in, logout and second sign-in, plus explicit reviewer acceptance."
+        ],
+        "owner_id": null,
+        "due_date": "2026-10-26",
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 388,
+            "end_char": 494,
+            "quote": "Launch on 26 October 2026 includes Microsoft Entra ID SSO; the earlier phase-two SSO schedule is replaced."
+          },
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 495,
+            "end_char": 635,
+            "quote": "Acceptance requires UAT-HP-SSO-01: customer-tenant SAML sign-in, logout and second sign-in, plus the project reviewer's explicit acceptance."
+          }
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "id": "fnd_hp_acceptance",
+        "kind": "acceptance_gap",
+        "title": "SSO acceptance evidence is still missing",
+        "explanation": "The reviewed replacement baseline requires SSO at launch; the current packet only records a password test.",
+        "commitment_ids": [
+          "cmt_hp_sso_launch"
+        ],
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 388,
+            "end_char": 494,
+            "quote": "Launch on 26 October 2026 includes Microsoft Entra ID SSO; the earlier phase-two SSO schedule is replaced."
+          },
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 495,
+            "end_char": 635,
+            "quote": "Acceptance requires UAT-HP-SSO-01: customer-tenant SAML sign-in, logout and second sign-in, plus the project reviewer's explicit acceptance."
+          },
+          {
+            "source_version_id": "sv_hp_checklist_001",
+            "start_char": 374,
+            "end_char": 445,
+            "quote": "No Entra ID SSO test run or customer SSO acceptance record is attached."
+          }
+        ]
+      },
+      {
+        "id": "fnd_hp_dependency",
+        "kind": "dependency_conflict",
+        "title": "SSO prerequisites remain scheduled after launch",
+        "explanation": "The accepted launch baseline now requires SSO, but the current plan still places credentials and approval after go-live.",
+        "commitment_ids": [
+          "cmt_hp_sso_launch"
+        ],
+        "evidence": [
+          {
+            "source_version_id": "sv_hp_sow_002",
+            "start_char": 388,
+            "end_char": 494,
+            "quote": "Launch on 26 October 2026 includes Microsoft Entra ID SSO; the earlier phase-two SSO schedule is replaced."
+          },
+          {
+            "source_version_id": "sv_hp_readiness_001",
+            "start_char": 401,
+            "end_char": 520,
+            "quote": "Customer tenant credentials are planned for 28 October 2026; customer security approval is planned for 29 October 2026."
+          }
+        ]
+      }
+    ],
+    "coverage_warnings": [
+      "The baseline change supports human reconciliation; it does not automatically resolve the historical scope finding or accept the replacement commitment."
+    ]
+  }
+}
